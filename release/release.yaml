@@ -59,13 +59,9 @@ stages:
   - stage: Deploy Test
     jobs:
     - deployment: test
-      steps:
-      - task: KubectlInstaller@0
-        displayName: 'Install Kubectl latest'
-
-      - task: Bash@3
-        displayName: Do something
-        inputs:
-          targetType: 'inline'
-          script: |
-            echo doing something
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - task: KubectlInstaller@0
+              displayName: 'Install Kubectl latest'
