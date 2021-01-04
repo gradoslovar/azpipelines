@@ -10,45 +10,61 @@ pool:
 variables:
  foo: "bar"
 
+# stages:
+#   - stage: Uno
+#     jobs:
+#     - job: test
+#       steps:
+#       - task: KubectlInstaller@0
+#         displayName: 'Install Kubectl latest'
+
+#   - stage: Due
+#     dependsOn: Uno
+#     jobs:
+#     - job: test
+#       steps:
+#       - task: Bash@3
+#         displayName: 'Bash Something'
+#         inputs:
+#           targetType: 'inline'
+#           script: |
+#             echo doing something
+
+#   - stage: Tre
+#     dependsOn: Uno
+#     jobs:
+#     - job: test
+#       steps:
+#       - task: Bash@3
+#         displayName: 'Bash Something'
+#         inputs:
+#           targetType: 'inline'
+#           script: |
+#             echo doing something
+
+#   - stage: Quatro
+#     dependsOn:
+#       - Due
+#       - Tre
+#     jobs:
+#     - job: test
+#       steps:
+#       - task: Bash@3
+#         displayName: 'Bash Something'
+#         inputs:
+#           targetType: 'inline'
+#           script: |
+#             echo doing something
 stages:
-  - stage: Uno
+  - stage: Deploy Test
     jobs:
-    - job: test
+    - deployment: test
       steps:
       - task: KubectlInstaller@0
         displayName: 'Install Kubectl latest'
 
-  - stage: Due
-    dependsOn: Uno
-    jobs:
-    - job: test
-      steps:
       - task: Bash@3
-        displayName: 'Bash Something'
-        inputs:
-          targetType: 'inline'
-          script: |
-            echo doing something
-
-  - stage: Tre
-    dependsOn: Uno
-    jobs:
-    - job: test
-      steps:
-      - task: Bash@3
-        displayName: 'Bash Something'
-        inputs:
-          targetType: 'inline'
-          script: |
-            echo doing something
-
-  - stage: Quatro
-    dependsOn:
-      - Due
-      - Tre
-      steps:
-      - task: Bash@3
-        displayName: 'Bash Something'
+        displayName: Do something
         inputs:
           targetType: 'inline'
           script: |
