@@ -12,7 +12,6 @@ variables:
 
 stages:
   - stage: Uno
-    displayName: Jedan
     jobs:
     - job: test
       steps:
@@ -44,7 +43,9 @@ stages:
             echo doing something
 
   - stage: Quatro
-    dependsOn: ['Due','Tre']
+    dependsOn:
+      - Due
+      - Tre
     jobs:
     - job: test
       steps:
