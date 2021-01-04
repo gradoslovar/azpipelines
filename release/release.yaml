@@ -1,0 +1,11 @@
+trigger:
+- none
+
+resources:
+  xxx
+
+variables:
+ foo: "bar"
+
+jobs:
+- job: test
