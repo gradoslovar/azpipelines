@@ -1,11 +1,14 @@
 trigger:
 - none
 
-resources:
-  xxx
+# resources:
+#   xxx
 
 variables:
  foo: "bar"
 
 jobs:
 - job: test
+  steps:
+  - task: KubectlInstaller@0
+    displayName: 'Install Kubectl latest'
