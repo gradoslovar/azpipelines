@@ -2,7 +2,7 @@ trigger:
 - none
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: ubuntu:20-04
 
 # resources:
 #   xxx
@@ -10,8 +10,20 @@ pool:
 variables:
  foo: "bar"
 
-jobs:
-- job: test
-  steps:
-  - task: KubectlInstaller@0
-    displayName: 'Install Kubectl latest'
+- stage: Uno
+  jobs:
+  - job: test
+    steps:
+    - task: KubectlInstaller@0
+      displayName: 'Install Kubectl latest'
+
+- stage: Due
+  jobs:
+  - job: test
+    steps:
+    - task: Bash@3
+      displayName: 'Bash Something'
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo doing something
