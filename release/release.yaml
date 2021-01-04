@@ -12,6 +12,7 @@ variables:
 
 stages:
   - stage: Uno
+    displayName: Jedan
     jobs:
     - job: test
       steps:
