@@ -46,10 +46,10 @@ stages:
     dependsOn:
       - Due
       - Tre
-    steps:
-    - task: Bash@3
-      displayName: 'Bash Something'
-      inputs:
-        targetType: 'inline'
-        script: |
-          echo doing something
+      steps:
+      - task: Bash@3
+        displayName: 'Bash Something'
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo doing something
