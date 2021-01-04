@@ -66,3 +66,9 @@ stages:
             steps:
             - task: KubectlInstaller@0
               displayName: 'Install Kubectl latest'
+            - task: Bash@3
+              displayName: 'Bash Something'
+              inputs:
+                targetType: 'inline'
+                script: |
+                  echo doing something 
