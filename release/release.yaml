@@ -1,6 +1,9 @@
 trigger:
 - none
 
+pool:
+  vmImage: ubuntu-latest
+
 # resources:
 #   xxx
 
