@@ -59,6 +59,7 @@ stages:
   - stage: Deploy_Test
     jobs:
     - deployment: test
+      environment: test
       strategy:
         runOnce:
           deploy:
