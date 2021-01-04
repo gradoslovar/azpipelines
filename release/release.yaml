@@ -56,7 +56,7 @@ variables:
 #           script: |
 #             echo doing something
 stages:
-  - stage: Deploy_Test
+  - stage: Deploy_Test_1
     jobs:
     - deployment: test
       environment: test
@@ -71,4 +71,19 @@ stages:
               inputs:
                 targetType: 'inline'
                 script: |
-                  echo doing something 
+                  echo doing something
+
+  - stage: Deploy_Test_2
+    jobs:
+    - deployment: test
+      environment: test
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - task: Bash@3
+              displayName: 'Bash Something'
+              inputs:
+                targetType: 'inline'
+                script: |
+                  echo doing something 2
