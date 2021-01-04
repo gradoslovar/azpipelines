@@ -19,6 +19,19 @@ stages:
         displayName: 'Install Kubectl latest'
 
   - stage: Due
+    dependsOn: Uno
+    jobs:
+    - job: test
+      steps:
+      - task: Bash@3
+        displayName: 'Bash Something'
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo doing something
+
+  - stage: Tre
+    dependsOn: Uno
     jobs:
     - job: test
       steps:
