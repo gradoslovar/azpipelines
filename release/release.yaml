@@ -90,9 +90,6 @@ variables:
 #                 script: |
 #                   echo doing something 2
 
-pool:
-  vmImage: 'ubuntu-18.04'
-
 strategy:
   matrix:
     ubuntu14:
