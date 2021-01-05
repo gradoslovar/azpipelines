@@ -109,3 +109,13 @@ container: ubuntu:18.04
 
 steps:
 - script: printenv
+
+jobs:
+- job: test
+  steps:
+  - task: Bash@3
+    displayName: 'Bash Something'
+    inputs:
+      targetType: 'inline'
+      script: |
+        printenv
