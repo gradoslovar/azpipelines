@@ -55,35 +55,54 @@ variables:
 #           targetType: 'inline'
 #           script: |
 #             echo doing something
-stages:
-  - stage: Deploy_Test_1
-    jobs:
-    - deployment: test
-      environment: test
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - task: KubectlInstaller@0
-              displayName: 'Install Kubectl latest'
-            - task: Bash@3
-              displayName: 'Bash Something'
-              inputs:
-                targetType: 'inline'
-                script: |
-                  echo doing something
 
-  - stage: Deploy_Test_2
-    jobs:
-    - deployment: test
-      environment: test
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - task: Bash@3
-              displayName: 'Bash Something'
-              inputs:
-                targetType: 'inline'
-                script: |
-                  echo doing something 2
+
+# stages:
+#   - stage: Deploy_Test_1
+#     jobs:
+#     - deployment: test
+#       environment: test
+#       strategy:
+#         runOnce:
+#           deploy:
+#             steps:
+#             - task: KubectlInstaller@0
+#               displayName: 'Install Kubectl latest'
+#             - task: Bash@3
+#               displayName: 'Bash Something'
+#               inputs:
+#                 targetType: 'inline'
+#                 script: |
+#                   echo doing something
+
+#   - stage: Deploy_Test_2
+#     jobs:
+#     - deployment: test
+#       environment: test
+#       strategy:
+#         runOnce:
+#           deploy:
+#             steps:
+#             - task: Bash@3
+#               displayName: 'Bash Something'
+#               inputs:
+#                 targetType: 'inline'
+#                 script: |
+#                   echo doing something 2
+
+pool:
+  vmImage: 'ubuntu-18.04'
+
+strategy:
+  matrix:
+    ubuntu14:
+      containerImage: ubuntu:14.04
+    ubuntu16:
+      containerImage: ubuntu:16.04
+    ubuntu18:
+      containerImage: ubuntu:18.04
+
+container: $[ variables['containerImage'] ]
+
+steps:
+- script: printenv
