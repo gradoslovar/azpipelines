@@ -73,7 +73,8 @@ stages:
               inputs:
                 targetType: 'inline'
                 script: |
-                  echo doing something
+                  sleep 15s
+                  echo gotovo spavanje
 
   - stage: Deploy_Test_2
     jobs:
