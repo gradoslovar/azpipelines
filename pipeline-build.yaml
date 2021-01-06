@@ -12,18 +12,18 @@ stages:
       parameters:
         preBuild:
           - task: Bash@3
-            displayName: 'Custom pre-build step'
+            displayName: 'Custom pre-build step 1'
             inputs:
               targetType: 'inline'
               script: |
-                echo Doing something pre-build step 1
-                
+                echo Doing something custom 1
+
           - task: Bash@3
-            displayName: 'Custom pre-build step'
+            displayName: 'Custom pre-build step 2'
             inputs:
               targetType: 'inline'
               script: |
-                echo Doing something pre-build step 2
+                echo Doing something custom 2
 
         postBuild:
           - task: Bash@3
@@ -31,4 +31,4 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                echo Doing something post-build 
+                echo Doing something post-build
