@@ -1,6 +1,10 @@
 parameters:
-  preBuild: []
-  postBuild: []
+  # preBuild: []
+  # postBuild: []
+  - name: preBuild
+    type: stepList
+  - name: postBuild
+    type: stepList
   
 jobs:
 - job:
