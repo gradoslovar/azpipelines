@@ -9,26 +9,26 @@ stages:
   - stage: Build
     jobs:
     - template: templates/build-sample-job.yaml
-      parameters:
-        preBuild:
-          - task: Bash@3
-            displayName: 'Custom pre-build step 1'
-            inputs:
-              targetType: 'inline'
-              script: |
-                echo Doing something custom 1
+      # parameters:
+      #   preBuild:
+      #     - task: Bash@3
+      #       displayName: 'Custom pre-build step 1'
+      #       inputs:
+      #         targetType: 'inline'
+      #         script: |
+      #           echo Doing something custom 1
 
-          - task: Bash@3
-            displayName: 'Custom pre-build step 2'
-            inputs:
-              targetType: 'inline'
-              script: |
-                echo Doing something custom 2
+      #     - task: Bash@3
+      #       displayName: 'Custom pre-build step 2'
+      #       inputs:
+      #         targetType: 'inline'
+      #         script: |
+      #           echo Doing something custom 2
 
-        postBuild:
-          - task: Bash@3
-            displayName: 'Custom post-build step'
-            inputs:
-              targetType: 'inline'
-              script: |
-                echo Doing something post-build
+      #   postBuild:
+      #     - task: Bash@3
+      #       displayName: 'Custom post-build step'
+      #       inputs:
+      #         targetType: 'inline'
+      #         script: |
+      #           echo Doing something post-build
