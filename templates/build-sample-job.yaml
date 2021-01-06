@@ -8,17 +8,11 @@ jobs:
   steps:
     
     - task: Bash@3
-      displayName: 'Restore packages'
+      displayName: 'Restore'
       inputs:
         targetType: 'inline'
         script: |
-          echo Restore all packages needed
-    - task: Bash@3
-      displayName: 'Install certificates'
-      inputs:
-        targetType: 'inline'
-        script: |
-          echo Install all the certificates needed
+          echo Restoring
      
     - ${{ parameters.preBuild }}
 
@@ -27,7 +21,7 @@ jobs:
       inputs:
         targetType: 'inline'
         script: |
-          echo This script represents the build tasks
+          echo Building
           
     - ${{ parameters.postBuild }}
 
@@ -36,4 +30,4 @@ jobs:
       inputs:
         targetType: 'inline'
         script: |
-          echo This script represents the publish tasks
+          echo Publishing
