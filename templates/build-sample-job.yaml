@@ -1,6 +1,4 @@
 parameters:
-  # preBuild: []
-  # postBuild: []
   - name: preBuild
     type: stepList
   - name: postBuild
