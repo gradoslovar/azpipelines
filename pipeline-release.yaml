@@ -9,14 +9,12 @@ parameters:
     - ubuntu-20.04
   default: windows-2019
 
+- name: foo
+  displayName: Agent
+  default: bar
+
 pool:
   vmImage: ubuntu-20.04
-
-# resources:
-#   xxx
-
-variables:
- foo: "bar"
 
 stages:
   - stage: Uno
