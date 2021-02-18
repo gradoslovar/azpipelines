@@ -32,8 +32,7 @@ stages:
     jobs:
     - job: DeployDue
       steps:
-      - pwsh: |
-          Write-Host "Bu"
+      - templates: templates/template.yaml
 
   - stage: Quatro
     dependsOn:
