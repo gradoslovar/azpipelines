@@ -29,7 +29,6 @@ stages:
         displayName: 'Install Kubectl latest'
 
   - stage: Due
-    dependsOn: Uno
     jobs:
     - job: test
       steps:
@@ -41,7 +40,9 @@ stages:
             echo doing something
 
   - stage: Tre
-    dependsOn: Uno
+    dependsOn:
+    - Uno
+    - Due
     jobs:
     - job: test
       steps:
