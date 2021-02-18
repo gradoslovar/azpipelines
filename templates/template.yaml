@@ -2,3 +2,6 @@ steps:
 
 - pwsh: |
     Write-Host "Son"
+
+- pwsh: |
+    Write-Host "$(foo)"

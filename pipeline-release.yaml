@@ -27,6 +27,8 @@ stages:
         - powershell: |
             Write-Host "##vso[task.setvariable variable=${{ parameter.key }}]${{ parameter.value}}"
           displayName: Expand ${{ parameter.key }}
+      - pwsh: |
+          Write-Host "$(foo)"
 
       - task: KubectlInstaller@0
         displayName: 'Install Kubectl latest'
