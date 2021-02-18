@@ -37,6 +37,11 @@ stages:
     jobs:
     - job: DeployDue
       steps:
+      - ${{ each parameter in parameters }}:
+        - powershell: |
+            Write-Host "##vso[task.setvariable variable=${{ parameter.key }}]${{ parameter.value}}"
+          displayName: Expand ${{ parameter.key }}
+
       - template: templates/template.yaml
 
   - stage: Quatro
