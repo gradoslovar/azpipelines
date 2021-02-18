@@ -21,7 +21,7 @@ variables:
 stages:
   - stage: Uno
     pool:
-      vmImage: windows-2019
+      vmImage: ${{ parameters.agent }}
     jobs:
     - job: test
       steps:
