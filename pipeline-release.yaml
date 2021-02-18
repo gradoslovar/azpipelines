@@ -30,7 +30,8 @@ stages:
 
   - stage: Due
     jobs:
-    - template: templates/template.yaml
+    - job: Deploy Due
+      - template: templates/template.yaml
 
   - stage: Quatro
     dependsOn:
