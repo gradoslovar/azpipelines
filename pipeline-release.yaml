@@ -12,6 +12,8 @@ variables:
 
 stages:
   - stage: Uno
+    pool:
+      vmImage: windows-2019
     jobs:
     - job: test
       steps:
