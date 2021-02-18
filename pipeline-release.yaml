@@ -32,6 +32,9 @@ stages:
     jobs:
     - job: DeployDue
       steps:
+      - pwsh: |
+          Write-Host "Father"
+
       - templates: templates/template.yaml
 
   - stage: Quatro

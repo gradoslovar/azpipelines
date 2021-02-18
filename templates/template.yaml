@@ -1,4 +1,4 @@
 steps:
 
 - pwsh: |
-    Write-Host "Bu"
+    Write-Host "Son"
