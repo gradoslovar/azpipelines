@@ -29,6 +29,7 @@ stages:
         displayName: 'Install Kubectl latest'
 
   - stage: Due
+    jobs:
     - template: templates/template.yaml
 
   - stage: Quatro
