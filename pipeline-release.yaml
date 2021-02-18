@@ -40,7 +40,6 @@ stages:
             echo doing something
 
   - stage: Tre
-    dependsOn: Uno, Due
     jobs:
     - job: test
       steps:
@@ -53,6 +52,7 @@ stages:
 
   - stage: Quatro
     dependsOn:
+      - Uno
       - Due
       - Tre
     jobs:
