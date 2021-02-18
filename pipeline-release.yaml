@@ -1,6 +1,14 @@
 trigger:
 - none
 
+parameters:
+- name: agent
+  displayName: Agent
+  values:
+    - windows-2019
+    - ubuntu-20.04
+  default: windows-2019
+
 pool:
   vmImage: ubuntu-20.04
 
