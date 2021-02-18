@@ -1,0 +1,4 @@
+steps:
+
+- pwsh: |
+    Write-Host "Bu"

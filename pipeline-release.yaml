@@ -40,15 +40,7 @@ stages:
             echo doing something
 
   - stage: Tre
-    jobs:
-    - job: test
-      steps:
-      - task: Bash@3
-        displayName: 'Bash Something'
-        inputs:
-          targetType: 'inline'
-          script: |
-            echo doing something
+    - tempate: templates/template.yaml
 
   - stage: Quatro
     dependsOn:
