@@ -23,12 +23,18 @@ stages:
     jobs:
     - job: test
       steps:
+      - ${{ each parameter in parameters }}:
+        - powershell: |
+            Write-Host "##vso[task.setvariable variable=${{ parameter.key }}]${{ parameter.value}}"
+          displayName: Expand ${{ parameter.key }}
+
       - task: KubectlInstaller@0
         displayName: 'Install Kubectl latest'
 
   - stage: Due
     jobs:
     - job: DeployDue
+      steps:
       - template: templates/template.yaml
 
   - stage: Quatro
