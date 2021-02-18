@@ -10,7 +10,7 @@ parameters:
   default: windows-2019
 
 pool:
-  vmImage: ${{ parameters.agent }}
+  vmImage: ubuntu-20.04
 
 # resources:
 #   xxx
@@ -20,8 +20,8 @@ variables:
 
 stages:
   - stage: Uno
-    # pool:
-    #   vmImage: ${{ parameters.agent }}
+    pool:
+      vmImage: ${{ parameters.agent }}
     jobs:
     - job: test
       steps:
