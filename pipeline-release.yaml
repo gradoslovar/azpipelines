@@ -10,83 +10,84 @@ pool:
 variables:
  foo: "bar"
 
-# stages:
-#   - stage: Uno
-#     jobs:
-#     - job: test
-#       steps:
-#       - task: KubectlInstaller@0
-#         displayName: 'Install Kubectl latest'
-
-#   - stage: Due
-#     dependsOn: Uno
-#     jobs:
-#     - job: test
-#       steps:
-#       - task: Bash@3
-#         displayName: 'Bash Something'
-#         inputs:
-#           targetType: 'inline'
-#           script: |
-#             echo doing something
-
-#   - stage: Tre
-#     dependsOn: Uno
-#     jobs:
-#     - job: test
-#       steps:
-#       - task: Bash@3
-#         displayName: 'Bash Something'
-#         inputs:
-#           targetType: 'inline'
-#           script: |
-#             echo doing something
-
-#   - stage: Quatro
-#     dependsOn:
-#       - Due
-#       - Tre
-#     jobs:
-#     - job: test
-#       steps:
-#       - task: Bash@3
-#         displayName: 'Bash Something'
-#         inputs:
-#           targetType: 'inline'
-#           script: |
-#             echo doing something
-
-
 stages:
-  - stage: Deploy_Test_1
+  - stage: Uno
     jobs:
-    - deployment: test
-      environment: test
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - task: KubectlInstaller@0
-              displayName: 'Install Kubectl latest'
-            - task: Bash@3
-              displayName: 'Bash Something'
-              inputs:
-                targetType: 'inline'
-                script: |
-                  sleep 15s
-                  echo gotovo spavanje
+    - job: test
+      steps:
+      - task: KubectlInstaller@0
+        displayName: 'Install Kubectl latest'
 
-  - stage: Deploy_Test_2
+  - stage: Due
+    dependsOn: Uno
     jobs:
-    - deployment: test
-      environment: test
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - task: Bash@3
-              displayName: 'Bash Something'
-              inputs:
-                targetType: 'inline'
-                script: |
-                  echo doing something 2
+    - job: test
+      steps:
+      - task: Bash@3
+        displayName: 'Bash Something'
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo doing something
+
+  - stage: Tre
+    dependsOn: Uno
+    jobs:
+    - job: test
+      steps:
+      - task: Bash@3
+        displayName: 'Bash Something'
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo doing something
+
+  - stage: Quatro
+    dependsOn:
+      - Due
+      - Tre
+    jobs:
+    - job: test
+      steps:
+      - task: Bash@3
+        displayName: 'Bash Something'
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo doing something
+
+
+## Stages with deployment jobs
+# stages:
+#   - stage: Deploy_Test_1
+#     jobs:
+#     - deployment: test
+#       environment: test
+#       strategy:
+#         runOnce:
+#           deploy:
+#             steps:
+#             - task: KubectlInstaller@0
+#               displayName: 'Install Kubectl latest'
+#             - task: Bash@3
+#               displayName: 'Bash Something'
+#               inputs:
+#                 targetType: 'inline'
+#                 script: |
+#                   sleep 15s
+#                   echo gotovo spavanje
+
+#   - stage: Deploy_Test_2
+#     jobs:
+#     - deployment: test
+#       environment: test
+#       strategy:
+#         runOnce:
+#           deploy:
+#             steps:
+#             - task: Bash@3
+#               displayName: 'Bash Something'
+#               inputs:
+#                 targetType: 'inline'
+#                 script: |
+#                   echo doing something 2
