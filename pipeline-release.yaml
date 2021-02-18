@@ -35,7 +35,7 @@ stages:
       - pwsh: |
           Write-Host "Father"
 
-      - templates: templates/template.yaml
+      - template: templates/template.yaml
 
   - stage: Quatro
     dependsOn:
