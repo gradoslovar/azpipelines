@@ -40,9 +40,7 @@ stages:
             echo doing something
 
   - stage: Tre
-    dependsOn:
-    - Uno
-    - Due
+    dependsOn: Uno, Due
     jobs:
     - job: test
       steps:
