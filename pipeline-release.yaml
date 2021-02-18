@@ -29,7 +29,6 @@ stages:
   - stage: Due
     jobs:
     - job: DeployDue
-      steps:
       - template: templates/template.yaml
 
   - stage: Quatro
