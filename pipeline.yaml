@@ -49,3 +49,19 @@ stages:
       - pwsh: |
           Write-Host "$(varFoo)"
         displayName: Test print
+
+  - stage: After
+    dependsOn:
+      - Build
+    pool:
+        vmImage: windows-2019
+    variables:
+      varBlah: $[ stageDependencies.Build.TestJob.outputs['foooo.foo'] ]
+    jobs:
+    - job: TestJob
+      pool:
+        vmImage: windows-2019
+      displayName: Test Job
+      steps:
+      - pwsh: |
+          Write-Host "$(varBlah)"
