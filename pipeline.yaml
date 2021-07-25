@@ -15,6 +15,7 @@ stages:
         - pwsh: |
             Write-Host "##vso[task.setvariable variable=foo;isOutput=true]barrrr"
           displayName: foooo
+          name: foooo
 
         # - pwsh: |
         #     Write-Host "$(foo)"
