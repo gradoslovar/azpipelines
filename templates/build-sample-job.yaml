@@ -8,7 +8,7 @@ parameters:
   
 jobs:
 - job:
-  displayName: 'Build Project'
+  displayName: Build Project
   steps:
     
     - task: Bash@3

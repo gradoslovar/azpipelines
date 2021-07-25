@@ -9,59 +9,62 @@ stages:
     jobs:
     - template: templates/build-sample-job.yaml
 
-    - job: TestJob
-      pool:
-        vmImage: windows-2019
-      displayName: Test Job
-      steps:
-      - pwsh: |
-          Write-Host "##vso[task.setvariable variable=foo;isOutput=true]sone care"
-        displayName: foooo
-        name: foooo
+    - pwsh: |
+        Write-Host "Blah"
 
-      - pwsh: |
-          Write-Host "$(foooo.foo)"
-        displayName: Test print
+  #   - job: TestJob
+  #     pool:
+  #       vmImage: windows-2019
+  #     displayName: Test Job
+  #     steps:
+  #     - pwsh: |
+  #         Write-Host "##vso[task.setvariable variable=foo;isOutput=true]sone care"
+  #       displayName: foooo
+  #       name: foooo
 
-    - job: TestJob2
-      pool:
-        vmImage: ubuntu-20.04
-      displayName: Test Job 2
-      dependsOn:
-        - TestJob
-      variables:
-        varFoo: $[ dependencies.TestJob.outputs['foooo.foo'] ]
-      steps:
-      - pwsh: |
-          Write-Host "$(varFoo)"
-        displayName: Test print
+  #     - pwsh: |
+  #         Write-Host "$(foooo.foo)"
+  #       displayName: Test print
 
-    - job: TestJob3
-      pool:
-        vmImage: windows-2019
-      displayName: Test Job 3
-      dependsOn:
-        - TestJob
-        - TestJob2
-      variables:
-        varFoo: $[ dependencies.TestJob.outputs['foooo.foo'] ]
-      steps:
-      - pwsh: |
-          Write-Host "$(varFoo)"
-        displayName: Test print
+  #   - job: TestJob2
+  #     pool:
+  #       vmImage: ubuntu-20.04
+  #     displayName: Test Job 2
+  #     dependsOn:
+  #       - TestJob
+  #     variables:
+  #       varFoo: $[ dependencies.TestJob.outputs['foooo.foo'] ]
+  #     steps:
+  #     - pwsh: |
+  #         Write-Host "$(varFoo)"
+  #       displayName: Test print
 
-  - stage: After
-    dependsOn:
-      - Build
-    pool:
-        vmImage: windows-2019
-    variables:
-      varBlah: $[ stageDependencies.Build.TestJob.outputs['foooo.foo'] ]
-    jobs:
-    - job: TestJob
-      pool:
-        vmImage: windows-2019
-      displayName: Test Job
-      steps:
-      - pwsh: |
-          Write-Host "$(varBlah)"
+  #   - job: TestJob3
+  #     pool:
+  #       vmImage: windows-2019
+  #     displayName: Test Job 3
+  #     dependsOn:
+  #       - TestJob
+  #       - TestJob2
+  #     variables:
+  #       varFoo: $[ dependencies.TestJob.outputs['foooo.foo'] ]
+  #     steps:
+  #     - pwsh: |
+  #         Write-Host "$(varFoo)"
+  #       displayName: Test print
+
+  # - stage: After
+  #   dependsOn:
+  #     - Build
+  #   pool:
+  #       vmImage: windows-2019
+  #   variables:
+  #     varBlah: $[ stageDependencies.Build.TestJob.outputs['foooo.foo'] ]
+  #   jobs:
+  #   - job: TestJob
+  #     pool:
+  #       vmImage: windows-2019
+  #     displayName: Test Job
+  #     steps:
+  #     - pwsh: |
+  #         Write-Host "$(varBlah)"
