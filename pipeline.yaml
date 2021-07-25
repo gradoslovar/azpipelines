@@ -7,7 +7,7 @@ pr: none
 stages:
   - stage: DirectoryListener
     pool:
-      vmImage: ${{ parameters.agent_vm_image }}
+      vmImage: ubuntu-20.04
     dependsOn: []
     variables:
       dl_vm_public_ip: 1
