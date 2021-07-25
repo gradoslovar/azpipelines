@@ -10,7 +10,8 @@ parameters:
   default: mosdef
 
 variables:
-- marta: ${{ parameters.test2 }}
+- name: marta
+  value: ${{ parameters.test2 }}
 
 stages:
   - stage: DirectoryListener
