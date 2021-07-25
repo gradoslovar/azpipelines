@@ -16,6 +16,7 @@ stages:
     dependsOn: []
     variables:
       dl_vm_public_ip: 1
+      test3: "${{ parameters.test2 }}"
 
     jobs:
     - job: DeployDirectoryListener
@@ -23,13 +24,13 @@ stages:
       - pwsh: |
           Write-Host "$(dl_vm_public_ip)"
 
-      - ${{ each parameter in parameters }}:
-        - powershell: |
-            Write-Host "##vso[task.setvariable variable=${{ parameter.key }}]${{ parameter.value}}"
-          displayName: Expand ${{ parameter.key }}
+      # - ${{ each parameter in parameters }}:
+      #   - powershell: |
+      #       Write-Host "##vso[task.setvariable variable=${{ parameter.key }}]${{ parameter.value}}"
+      #     displayName: Expand ${{ parameter.key }}
 
       - pwsh: |
-          Write-Host "$(test2)"
+          Write-Host "$(test3)"
 
     - template: templates/build-sample-job.yaml
       parameters:
