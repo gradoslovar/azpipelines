@@ -1,37 +1,48 @@
 parameters:
-  - name: preBuild
-    type: stepList
-    default: []
-  - name: postBuild
-    type: stepList
-    default: []
-  
+- name: test
+
 jobs:
-- job:
-  displayName: Build Project
+- job: DeployDlVm
+  pool:
+    vmImage: ubuntu-20.04
+  displayName: Deploy DL VM
   steps:
+  - pwsh: |
+      Write-Host "${{ parameters.test }} the template job"
+# parameters:
+#   - name: preBuild
+#     type: stepList
+#     default: []
+#   - name: postBuild
+#     type: stepList
+#     default: []
+  
+# jobs:
+# - job:
+#   displayName: Build Project
+#   steps:
     
-    - task: Bash@3
-      displayName: 'Restore'
-      inputs:
-        targetType: 'inline'
-        script: |
-          echo Restoring
+#     - task: Bash@3
+#       displayName: 'Restore'
+#       inputs:
+#         targetType: 'inline'
+#         script: |
+#           echo Restoring
      
-    - ${{ parameters.preBuild }}
+#     - ${{ parameters.preBuild }}
 
-    - task: Bash@3
-      displayName: 'Build'
-      inputs:
-        targetType: 'inline'
-        script: |
-          echo Building
+#     - task: Bash@3
+#       displayName: 'Build'
+#       inputs:
+#         targetType: 'inline'
+#         script: |
+#           echo Building
           
-    - ${{ parameters.postBuild }}
+#     - ${{ parameters.postBuild }}
 
-    - task: Bash@3
-      displayName: 'Publish'
-      inputs:
-        targetType: 'inline'
-        script: |
-          echo Publishing
+#     - task: Bash@3
+#       displayName: 'Publish'
+#       inputs:
+#         targetType: 'inline'
+#         script: |
+#           echo Publishing

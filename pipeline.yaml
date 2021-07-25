@@ -18,6 +18,10 @@ stages:
       - pwsh: |
           Write-Host "$(dl_vm_public_ip)"
 
+    - template: templates/build-sample-job.yaml
+        parameters:
+          test: "testiram"
+
 # stages:
 #   - stage: Build
 #     jobs:
