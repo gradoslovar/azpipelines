@@ -16,7 +16,7 @@ stages:
     - job: DeployDirectoryListener
       steps:
       - pwsh: |
-          Write-Host "Blah"
+          Write-Host "$(dl_vm_public_ip)"
 
 # stages:
 #   - stage: Build
