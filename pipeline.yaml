@@ -15,7 +15,7 @@ stages:
       displayName: Test Job
       steps:
       - pwsh: |
-          Write-Host "##vso[task.setvariable variable=foo;isOutput=true]barrrr"
+          Write-Host "##vso[task.setvariable variable=foo;isOutput=true]sone care"
         displayName: foooo
         name: foooo
 
