@@ -10,7 +10,8 @@ stages:
     - template: templates/build-sample-job.yaml
 
     - job: TestJob
-      pool: windows-2019
+      pool:
+        vmImage: windows-2019
       displayName: Test Job
       steps:
       - pwsh: |
@@ -23,7 +24,8 @@ stages:
         displayName: Test print
 
     - job: TestJob2
-      pool: ubuntu-20.04
+      pool:
+        vmImage: ubuntu-20.04
       displayName: Test Job2
       dependsOn:
         - TestJob
