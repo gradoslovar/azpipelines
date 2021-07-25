@@ -25,7 +25,9 @@ stages:
       displayName: Test Job2
       dependsOn:
         - TestJob
+      variables:
+        varFoo: [ dependencies.TestJob.outputs['foooo.foo'] ]
       steps:
       - pwsh: |
-          Write-Host "$(dependencies.TestJob.outputs['foooo.foo'])"
+          Write-Host "$(varFoo)"
         displayName: Test print
