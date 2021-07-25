@@ -12,18 +12,20 @@ stages:
     - job: TestJob
       displayName: Test Job
       steps:
-        - pwsh: |
-            Write-Host "##vso[task.setvariable variable=foo;isOutput=true]barrrr"
-          displayName: foooo
-          name: foooo
+      - pwsh: |
+          Write-Host "##vso[task.setvariable variable=foo;isOutput=true]barrrr"
+        displayName: foooo
+        name: foooo
 
-        - pwsh: |
-            Write-Host "$(foooo.foo)"
+      - pwsh: |
+          Write-Host "$(foooo.foo)"
+        displayName: Test print
 
     - job: TestJob2
       displayName: Test Job2
       dependsOn:
         - TestJob
       steps:
-        - pwsh: |
-            Write-Host "$(dependencies.TestJob.outputs['foooo.foo']"
+      - pwsh: |
+          Write-Host "$(dependencies.TestJob.outputs['foooo.foo'])"
+        displayName: Test print
