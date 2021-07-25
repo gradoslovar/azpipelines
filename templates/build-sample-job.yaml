@@ -11,7 +11,7 @@ jobs:
       Write-Host "${{ parameters.test }} the template job"
 
   - pwsh: |
-          Write-Host "$(test2)"
+          Write-Host "${{ parameters.test2 }}"
 # parameters:
 #   - name: preBuild
 #     type: stepList
