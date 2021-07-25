@@ -26,9 +26,23 @@ stages:
     - job: TestJob2
       pool:
         vmImage: ubuntu-20.04
-      displayName: Test Job2
+      displayName: Test Job 2
       dependsOn:
         - TestJob
+      variables:
+        varFoo: $[ dependencies.TestJob.outputs['foooo.foo'] ]
+      steps:
+      - pwsh: |
+          Write-Host "$(varFoo)"
+        displayName: Test print
+
+    - job: TestJob3
+      pool:
+        vmImage: windows-2019
+      displayName: Test Job 3
+      dependsOn:
+        - TestJob
+        - TestJob2
       variables:
         varFoo: $[ dependencies.TestJob.outputs['foooo.foo'] ]
       steps:
