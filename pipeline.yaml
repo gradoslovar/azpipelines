@@ -26,7 +26,7 @@ stages:
       dependsOn:
         - TestJob
       variables:
-        varFoo: [ dependencies.TestJob.outputs['foooo.foo'] ]
+        varFoo: $[ dependencies.TestJob.outputs['foooo.foo'] ]
       steps:
       - pwsh: |
           Write-Host "$(varFoo)"
