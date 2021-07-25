@@ -18,15 +18,12 @@ stages:
           name: foooo
 
         - pwsh: |
-            Write-Host "$(foo)"
-
-        - pwsh: |
             Write-Host "$(foooo.foo)"
 
-    # - job: TestJob2
-    #   displayName: Test Job2
-    #   dependsOn:
-    #     - TestJob
-    #   steps:
-    #     - pwsh: |
-    #         Write-Host "$(foo)"
+    - job: TestJob2
+      displayName: Test Job2
+      dependsOn:
+        - TestJob
+      steps:
+        - pwsh: |
+            Write-Host "$(dependencies.TestJob.outputs['foooo.foo']"
