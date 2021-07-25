@@ -21,20 +21,6 @@ stages:
     variables:
       dl_vm_public_ip: 1
 
-    jobs:
-    - job: DeployDirectoryListener
-      steps:
-      - pwsh: |
-          Write-Host "$(dl_vm_public_ip)"
-
-      # - ${{ each parameter in parameters }}:
-      #   - powershell: |
-      #       Write-Host "##vso[task.setvariable variable=${{ parameter.key }}]${{ parameter.value}}"
-      #     displayName: Expand ${{ parameter.key }}
-
-      - pwsh: |
-          Write-Host "$(marta)"
-
     - template: templates/build-sample-job.yaml
       parameters:
         test: "testiram"
