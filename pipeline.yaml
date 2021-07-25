@@ -13,7 +13,7 @@ stages:
       displayName: Test Job
       steps:
         - pwsh: |
-            Write-Host "##vso[task.setvariable variable=$foo]barrrr"
+            Write-Host "##vso[task.setvariable variable=foo]barrrr"
 
         - pwsh: |
             Write-Host "$(foo)"
