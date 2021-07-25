@@ -8,3 +8,9 @@ stages:
   - stage: Build
     jobs:
     - template: templates/build-sample-job.yaml
+
+    - job: TestJob
+      displayName: Test Job
+      steps:
+        - pwsh: |
+            Write-Host "blah"
