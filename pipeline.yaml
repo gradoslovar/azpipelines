@@ -17,8 +17,8 @@ stages:
           displayName: foooo
           name: foooo
 
-        # - pwsh: |
-        #     Write-Host "$(foo)"
+        - pwsh: |
+            Write-Host "$(foo)"
 
         - pwsh: |
             Write-Host "$(foooo.foo)"
