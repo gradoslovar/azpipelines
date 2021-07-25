@@ -14,14 +14,18 @@ stages:
       steps:
         - pwsh: |
             Write-Host "##vso[task.setvariable variable=foo]barrrr"
+          displayName: foooo
 
         - pwsh: |
             Write-Host "$(foo)"
 
-    - job: TestJob2
-      displayName: Test Job2
-      dependsOn:
-        - TestJob
-      steps:
         - pwsh: |
-            Write-Host "$(foo)"
+            Write-Host "$(foooo.foo)"
+
+    # - job: TestJob2
+    #   displayName: Test Job2
+    #   dependsOn:
+    #     - TestJob
+    #   steps:
+    #     - pwsh: |
+    #         Write-Host "$(foo)"
