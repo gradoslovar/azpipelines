@@ -9,6 +9,9 @@ jobs:
   steps:
   - pwsh: |
       Write-Host "${{ parameters.test }} the template job"
+
+  - pwsh: |
+          Write-Host "$(test2)"
 # parameters:
 #   - name: preBuild
 #     type: stepList
