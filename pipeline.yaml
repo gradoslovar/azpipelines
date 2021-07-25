@@ -21,6 +21,7 @@ stages:
     variables:
       dl_vm_public_ip: 1
 
+    jobs:
     - template: templates/build-sample-job.yaml
       parameters:
         test: "testiram"
