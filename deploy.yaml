@@ -4,18 +4,15 @@ pr: none
 pool:
   vmImage: windows-2019
 
-# parameters:
-# - name: version
-#   displayName: Version
-
-# - name: test
-#   default: test
+parameters:
+- name: test
+  default: refs/tags/v1.3.5
 
 resources:
   pipelines:
   - pipeline: test
     source: test
-    branch: "refs/tags/${{ variables.test }}"
+    branch: ${{ parameters.test }}
 
 jobs:
   - job: TestJob
