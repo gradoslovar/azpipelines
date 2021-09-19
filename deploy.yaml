@@ -6,7 +6,7 @@ pool:
 
 parameters:
 - name: test
-  default: refs/tags/v1.3.5
+  default: refs/tags/v1.3.7
 
 # resources:
 #   pipelines:
@@ -18,7 +18,7 @@ jobs:
   - job: TestJob
     displayName: Test Job
     steps:
-    - download: test
+    # - download: test
 
     # - pwsh: |
     #     Get-ChildItem -Recurse
@@ -27,3 +27,12 @@ jobs:
 
     - pwsh: |
         Write-Host $(Build.SourceBranch)
+
+    - task: DownloadPipelineArtifact@2
+      displayName: Download Pipeline Artifact
+      inputs:
+        buildType: specific
+        # project: 'ca2d4974-8a7b-4718-b139-e12329227f31'
+        definition: 40
+        tags: v1.3.7
+        artifactName: base-dev
