@@ -5,26 +5,29 @@ pool:
   vmImage: windows-2019
 
 parameters:
-- name: version
-  displayName: Version
+# - name: version
+#   displayName: Version
 
-- name: test
-  default: test
+# - name: test
+#   default: test
 
 resources:
   pipelines:
   - pipeline: test
     source: test
-    branch: refs/tags/v1.3.4
+    # branch: refs/tags/v1.3.4
     # branch: refs/tags/${{ parameters.version }}
 
 jobs:
   - job: TestJob
     displayName: Test Job
     steps:
-    - download: test
+    # - download: test
+
+    # - pwsh: |
+    #     Get-ChildItem -Recurse
+    #   workingDirectory: $(Pipeline.Workspace)/test/base-dev
+    #   displayName: pwsh ${{ parameters.test }}
 
     - pwsh: |
-        Get-ChildItem -Recurse
-      workingDirectory: $(Pipeline.Workspace)/test/base-dev
-      displayName: pwsh ${{ parameters.test }}
+        Write-Host $(Build.SourceBranch)
