@@ -26,7 +26,7 @@ jobs:
     #   displayName: pwsh ${{ parameters.test }}
 
     - pwsh: |
-        Write-Host $(Build.SourceBranch)
+        az pipelines build tag list --build-id 40
 
     # - task: DownloadPipelineArtifact@2
     #   displayName: Download Pipeline Artifact
@@ -37,11 +37,11 @@ jobs:
     #     tags: v1.3.7
     #     artifactName: base-dev
 
-    - task: DownloadPipelineArtifact@2
-      inputs:
-        source: specific
-        project: DevOps
-        pipeline: 40
-        runVersion: latestFromBranch
-        runBranch: refs/heads/develop
-        tags: 757
+    # - task: DownloadPipelineArtifact@2
+    #   inputs:
+    #     source: specific
+    #     project: DevOps
+    #     pipeline: 40
+    #     runVersion: latestFromBranch
+    #     runBranch: refs/heads/develop
+    #     tags: 757
