@@ -1,0 +1,31 @@
+trigger:
+  branches:
+    include:
+      - develop
+      - main
+      - refs/tags/v*
+  paths:
+    include:
+      - devops/infra/base.tf
+      - devops/infra/base.tfvars
+
+pr: none
+
+name: $(BuildID)
+
+pool:
+  vmImage: windows-2019
+
+steps:
+
+- task: CopyFiles@2
+  displayName: Copy afad-base module
+  inputs:
+    SourceFolder: devops/infra
+    Contents: |
+     **/**.tf
+    TargetFolder: $(Build.ArtifactStagingDirectory)/devops/infra
+
+- publish: '$(Build.ArtifactStagingDirectory)'
+  artifact: base-dev
+  displayName: Publish Artifacts
