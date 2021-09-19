@@ -15,7 +15,7 @@ resources:
   pipelines:
   - pipeline: test
     source: test
-    # branch: refs/tags/v1.3.4
+    branch: $(Build.SourceBranch)
     # branch: refs/tags/${{ parameters.version }}
 
 jobs:
