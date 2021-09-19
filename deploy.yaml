@@ -2,14 +2,14 @@ trigger: none
 pr: none
 
 pool:
-  vmImage: ${{ parameters.agent }}
+  vmImage: windows-2019
 
 parameters:
 - name: version
   displayName: Version
 
-- name: agent
-  default: windows-2019
+- name: test
+  default: test
 
 resources:
   pipelines:
@@ -27,4 +27,4 @@ jobs:
     - pwsh: |
         Get-ChildItem -Recurse
       workingDirectory: $(Pipeline.Workspace)/test/base-dev
-      displayName: pwsh test
+      displayName: pwsh ${{ parameters.test }}
