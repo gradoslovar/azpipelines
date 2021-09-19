@@ -5,8 +5,7 @@ pool:
   vmImage: windows-2019
 
 parameters:
-- name: test
-  default: refs/tags/v1.3.7
+- name: version
 
 jobs:
   - job: TestJob
@@ -19,13 +18,8 @@ jobs:
         project: DevOps
         pipeline: 40
         runVersion: latestFromBranch
-        runBranch: refs/heads/develop
+        runBranch: refs/tags/${{ parameters.version }}
         tags: blah
-
-    # - pwsh: |
-    #     Get-ChildItem -Recurse
-    #   workingDirectory: $(Pipeline.Workspace)/test/base-dev
-    #   displayName: test
 
     - pwsh: |
         Get-ChildItem -Recurse

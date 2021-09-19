@@ -18,21 +18,18 @@ pool:
 
 steps:
 
-# - task: CopyFiles@2
-#   displayName: Copy afad-base module
-#   inputs:
-#     SourceFolder: infra
-#     Contents: |
-#      **/**.tf
-#      **/**.tfvars
-#     TargetFolder: $(Build.ArtifactStagingDirectory)/infra
+- task: CopyFiles@2
+  displayName: Copy afad-base module
+  inputs:
+    SourceFolder: infra
+    Contents: |
+     **/**.tf
+     **/**.tfvars
+    TargetFolder: $(Build.ArtifactStagingDirectory)/infra
 
-# - publish: '$(Build.ArtifactStagingDirectory)'
-#   artifact: base-dev
-#   displayName: Publish Artifacts
-
-# - pwsh: |
-#     Write-Host "##vso[build.addbuildtag]$(Build.SourceBranch)"
+- publish: '$(Build.ArtifactStagingDirectory)'
+  artifact: base-dev
+  displayName: Publish Artifacts
 
 - pwsh: |
-    ls env: | ft -autosize
+    Write-Host "##vso[build.addbuildtag]$(Build.SourceBranchName)"
