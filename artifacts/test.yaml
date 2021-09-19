@@ -24,7 +24,7 @@ steps:
     SourceFolder: infra
     Contents: |
      **/**.tf
-     **/**.tfvars
+    #  **/**.tfvars
     TargetFolder: $(Build.ArtifactStagingDirectory)/infra
 
 - publish: '$(Build.ArtifactStagingDirectory)'
