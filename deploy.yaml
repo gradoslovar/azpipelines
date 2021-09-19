@@ -12,7 +12,7 @@ resources:
   pipelines:
   - pipeline: test
     source: test
-    tags: {{ parameters.version }}
+    tags: refs/tags/{{ parameters.version }}
     # branch: refs/tags/{{ parameters.version }}
 
 jobs:
