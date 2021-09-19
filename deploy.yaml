@@ -29,7 +29,12 @@ jobs:
         runBranch: refs/heads/develop
         tags: blah
 
+    # - pwsh: |
+    #     Get-ChildItem -Recurse
+    #   workingDirectory: $(Pipeline.Workspace)/test/base-dev
+    #   displayName: test
+
     - pwsh: |
         Get-ChildItem -Recurse
-      workingDirectory: $(Pipeline.Workspace)/test/base-dev
+      workingDirectory: $(Pipeline.Workspace)
       displayName: test
