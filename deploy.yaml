@@ -4,11 +4,15 @@ pr: none
 pool:
   vmImage: windows-2019
 
+parameters:
+- name: version
+  displayName: Version
+
 resources:
   pipelines:
   - pipeline: test
     source: test
-    # branch: refs/heads/develop
+    branch: refs/tags/{{ parameters.vesrion }}
 
 jobs:
   - job: TestJob
