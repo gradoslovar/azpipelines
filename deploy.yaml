@@ -10,10 +10,8 @@ resources:
     source: test
     # branch: refs/heads/develop
 
-stages:
-    - job: TestJob
-      pool:
-        vmImage: windows-2019
-      displayName: Test Job
-      steps:
-      - download: test
+jobs:
+  - job: TestJob
+    displayName: Test Job
+    steps:
+    - download: test
