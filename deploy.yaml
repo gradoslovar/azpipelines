@@ -17,6 +17,6 @@ jobs:
     - download: test
 
     - pwsh: |
-        Get-ChildItem
+        Get-ChildItem -Recurse
       workingDirectory: $(Pipeline.Workspace)/test/base-dev
       displayName: pwsh test
