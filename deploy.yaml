@@ -24,7 +24,7 @@ jobs:
         runVersion: latestFromBranch
         # runBranch: refs/tags/${{ parameters.version }}
         runBranch: refs/heads/develop
-        tags: blah
+        tags: ${{ parameters.version }}
 
     - pwsh: |
         Get-ChildItem -Recurse
