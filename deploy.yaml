@@ -11,11 +11,14 @@ pool:
 # - name: test
 #   default: test
 
+variables:
+
+
 resources:
   pipelines:
   - pipeline: test
     source: test
-    branch: refs/tags/${{ variables.test }}
+    branch: 'refs/tags/${{ variables.test }}'
 
 jobs:
   - job: TestJob
