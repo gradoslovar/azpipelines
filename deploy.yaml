@@ -25,9 +25,6 @@ jobs:
     #   workingDirectory: $(Pipeline.Workspace)/test/base-dev
     #   displayName: pwsh ${{ parameters.test }}
 
-    - pwsh: |
-        az pipelines build tag list --build-id 40
-
     # - task: DownloadPipelineArtifact@2
     #   displayName: Download Pipeline Artifact
     #   inputs:
@@ -37,11 +34,11 @@ jobs:
     #     tags: v1.3.7
     #     artifactName: base-dev
 
-    # - task: DownloadPipelineArtifact@2
-    #   inputs:
-    #     source: specific
-    #     project: DevOps
-    #     pipeline: 40
-    #     runVersion: latestFromBranch
-    #     runBranch: refs/heads/develop
-    #     tags: 757
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        source: specific
+        project: DevOps
+        pipeline: 40
+        runVersion: latestFromBranch
+        runBranch: refs/heads/develop
+        tags: blah
