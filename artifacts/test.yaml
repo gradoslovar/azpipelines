@@ -30,3 +30,6 @@ steps:
 - publish: '$(Build.ArtifactStagingDirectory)'
   artifact: base-dev
   displayName: Publish Artifacts
+
+- pwsh: |
+    Write-Host "##vso[build.addbuildtag]blah"
