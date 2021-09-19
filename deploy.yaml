@@ -12,13 +12,18 @@ jobs:
     displayName: Test Job
     steps:
 
+    - pwsh: |
+        Write-Host "refs/tags/${{ parameters.version }}"
+      displayName: test
+
     - task: DownloadPipelineArtifact@2
       inputs:
         source: specific
         project: DevOps
         pipeline: 40
         runVersion: latestFromBranch
-        runBranch: refs/tags/${{ parameters.version }}
+        # runBranch: refs/tags/${{ parameters.version }}
+        runBranch: refs/heads/develop
         tags: blah
 
     - pwsh: |
