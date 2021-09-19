@@ -1,0 +1,19 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: windows-2019
+
+resources:
+  pipelines:
+  - pipeline: test
+    source: test
+    # branch: refs/heads/develop
+
+stages:
+    - job: TestJob
+      pool:
+        vmImage: windows-2019
+      displayName: Test Job
+      steps:
+      - download: test
