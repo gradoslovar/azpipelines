@@ -22,8 +22,7 @@ jobs:
         project: DevOps
         pipeline: 40
         runVersion: latestFromBranch
-        # runBranch: refs/tags/${{ parameters.version }}
-        runBranch: refs/heads/develop
+        runBranch: refs/tags/${{ parameters.version }}
         tags: ${{ parameters.version }}
 
     - pwsh: |
