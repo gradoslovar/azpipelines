@@ -2,11 +2,14 @@ trigger: none
 pr: none
 
 pool:
-  vmImage: windows-2019
+  vmImage: ${{ parameters.agent }}
 
 parameters:
 - name: version
   displayName: Version
+
+- name: agent
+  default: windows-2019
 
 resources:
   pipelines:
