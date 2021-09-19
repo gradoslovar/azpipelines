@@ -15,3 +15,8 @@ jobs:
     displayName: Test Job
     steps:
     - download: test
+
+    - pwsh: |
+        Get-ChildItem
+      workingDirectory: $(Pipeline.Workspace)/test/test
+      displayName: pwsh test
