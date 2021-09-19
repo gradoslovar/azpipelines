@@ -32,7 +32,7 @@ jobs:
       displayName: Download Pipeline Artifact
       inputs:
         buildType: specific
-        # project: 'ca2d4974-8a7b-4718-b139-e12329227f31'
+        project: ca2d4974-8a7b-4718-b139-e12329227f31
         definition: 40
         tags: v1.3.7
         artifactName: base-dev
