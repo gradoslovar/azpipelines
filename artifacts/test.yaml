@@ -6,8 +6,8 @@ trigger:
       - refs/tags/v*
   paths:
     include:
-      - devops/infra/base.tf
-      - devops/infra/base.tfvars
+      - infra/base.tf
+      - infra/base.tfvars
 
 pr: none
 
@@ -21,10 +21,10 @@ steps:
 - task: CopyFiles@2
   displayName: Copy afad-base module
   inputs:
-    SourceFolder: devops/infra
+    SourceFolder: infra
     Contents: |
      **/**.tf
-    TargetFolder: $(Build.ArtifactStagingDirectory)/devops/infra
+    TargetFolder: $(Build.ArtifactStagingDirectory)/infra
 
 - publish: '$(Build.ArtifactStagingDirectory)'
   artifact: base-dev
