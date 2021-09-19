@@ -36,5 +36,5 @@ jobs:
 
     - pwsh: |
         Get-ChildItem -Recurse
-      workingDirectory: $(Pipeline.Workspace)
+      workingDirectory: $(Pipeline.Workspace)/base-dev
       displayName: test
