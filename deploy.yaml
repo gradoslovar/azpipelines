@@ -21,6 +21,7 @@ jobs:
         runVersion: latestFromBranch
         runBranch: ${{ parameters.branch }}
         tags: ${{ parameters.version }}
+        artifacts: base-dev
 
     - pwsh: |
         Get-ChildItem -Recurse
