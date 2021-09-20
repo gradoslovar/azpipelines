@@ -6,23 +6,20 @@ pool:
 
 parameters:
 - name: version
+- name: branch
 
 jobs:
   - job: TestJob
     displayName: Test Job
     steps:
 
-    - pwsh: |
-        Write-Host "refs/tags/${{ parameters.version }}"
-      displayName: test
-
     - task: DownloadPipelineArtifact@2
       inputs:
         source: specific
-        project: DevOps
+        project: $(system.teamProject)
         pipeline: 40
         runVersion: latestFromBranch
-        runBranch: refs/tags/${{ parameters.version }}
+        runBranch: ${{ parameters.branch }}
         tags: ${{ parameters.version }}
 
     - pwsh: |
