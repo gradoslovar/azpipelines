@@ -4,7 +4,7 @@ pr: none
 pool:
   vmImage: windows-2019
 
-# parameters:
+parameters:
 - name: version
 - name: branch
 
