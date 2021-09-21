@@ -4,7 +4,7 @@ pr: none
 pool:
   vmImage: windows-2019
 
-parameters:
+# parameters:
 - name: version
 - name: branch
 
@@ -13,17 +13,28 @@ jobs:
     displayName: Test Job
     steps:
 
-    - task: DownloadPipelineArtifact@2
-      inputs:
-        source: specific
-        project: $(system.teamProject)
-        pipeline: 40
-        runVersion: latestFromBranch
-        runBranch: ${{ parameters.branch }}
-        tags: ${{ parameters.version }}
-        artifacts: base-dev
+    # - task: DownloadPipelineArtifact@2
+    #   inputs:
+    #     source: specific
+    #     project: $(system.teamProject)
+    #     pipeline: 40
+    #     runVersion: latestFromBranch
+    #     runBranch: ${{ parameters.branch }}
+    #     tags: ${{ parameters.version }}
+    #     artifacts: base-dev
 
-    - pwsh: |
-        Get-ChildItem -Recurse
-      workingDirectory: $(Pipeline.Workspace)/base-dev
-      displayName: test
+      - task: DownloadPipelineArtifact@2
+        inputs:
+          source: specific
+          project: $(system.teamProject)
+          pipeline: 40
+          runVersion: latestFromBranch
+          runBranch: ${{ parameters.branch }}
+          tags: ${{ parameters.version }}
+          artifact: "base-dev"
+          path: "$(Pipeline.Workspace)/base-dev"
+
+    # - pwsh: |
+    #     Get-ChildItem -Recurse
+    #   workingDirectory: $(Pipeline.Workspace)/base-dev
+    #   displayName: test
