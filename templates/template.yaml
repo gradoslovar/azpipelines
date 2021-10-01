@@ -1,7 +1,17 @@
 steps:
 
 - pwsh: |
-    Write-Host "Son"
-
-- pwsh: |
-    Write-Host "$(foo)"
+    Write-Host "$(Build.BuildId)"
+    Write-Host "$(Build.BuildNumber)"
+    Write-Host "$(Build.DefinitionName)"
+    Write-Host "$(Build.QueuedBy)"
+    Write-Host "$(Build.Reason)"
+    Write-Host "$(Build.RequestedFor)"
+    Write-Host "$(Build.RequestedForEmail)"
+    Write-Host "$(Build.SourceVersion)"
+    Write-Host "$(Build.SourceBranch)"
+    Write-Host "$(Build.SourceBranchName)"
+    Write-Host "$(Build.SourceVersionAuthor)"
+    Write-Host "$(Build.SourceVersionMessage)"
+    Write-Host "$(Agent.JobStatus)"
+  condition: Always()
