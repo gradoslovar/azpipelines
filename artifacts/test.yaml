@@ -19,7 +19,6 @@ steps:
     Write-Host "dasda
 
 - pwsh: |
-    Write-Host "$(Build.SourceBranchName)"
     Write-Host "$(Build.BuildId)"
     Write-Host "$(Build.BuildNumber)"
     Write-Host "$(Build.DefinitionName)"
@@ -33,3 +32,4 @@ steps:
     Write-Host "$(Build.SourceVersionAuthor)"
     Write-Host "$(Build.SourceVersionMessage)"
     Write-Host "$(Agent.JobStatus)"
+  condition: Always()
