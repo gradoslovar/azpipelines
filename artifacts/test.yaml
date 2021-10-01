@@ -16,6 +16,9 @@ steps:
     ls env: | ft -autosize
 
 - pwsh: |
+    Write-Host "dasda
+
+- pwsh: |
     Write-Host "$(Build.SourceBranchName)"
     Write-Host "$(Build.BuildId)"
     Write-Host "$(Build.BuildNumber)"
