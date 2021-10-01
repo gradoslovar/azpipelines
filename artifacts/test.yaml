@@ -14,3 +14,6 @@ steps:
 
 - pwsh: |
     ls env: | ft -autosize
+
+- pwsh: |
+    Write-Host "$(Build.SourceBranchName)"
