@@ -1,13 +1,7 @@
 trigger:
   branches:
     include:
-      - develop
-      - main
       - refs/tags/v*
-  paths:
-    include:
-      - infra/base.tf
-      - infra/base.tfvars
 
 pr: none
 
@@ -18,18 +12,5 @@ pool:
 
 steps:
 
-- task: CopyFiles@2
-  displayName: Copy afad-base module
-  inputs:
-    SourceFolder: infra
-    Contents: |
-     **/**.tf
-     **/**.tfvars
-    TargetFolder: $(Build.ArtifactStagingDirectory)/infra
-
-- publish: '$(Build.ArtifactStagingDirectory)'
-  artifact: base-dev
-  displayName: Publish Artifacts
-
 - pwsh: |
-    Write-Host "##vso[build.addbuildtag]$(Build.SourceBranchName)"
+    ls env: | ft -autosize
