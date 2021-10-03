@@ -22,7 +22,7 @@ stages:
           ls env: | ft -autosize
 
       - pwsh: |
-          Write-Host "Stage1"
+          Write-Host "Stage1
 
       - template: ../templates/template.yaml
 
