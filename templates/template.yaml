@@ -14,4 +14,6 @@ steps:
     Write-Host "$(Build.SourceVersionAuthor)"
     Write-Host "$(Build.SourceVersionMessage)"
     Write-Host "$(Agent.JobStatus)"
+    Write-Host "$(System.ServerType)"
+    Write-Host "$(System.StageAttempt)"
   condition: Always()
