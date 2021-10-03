@@ -22,6 +22,8 @@ stages:
       - pwsh: |
           Write-Host "Stage1"
 
+      - template: ../templates/template.yaml
+
   - stage: Stage2
     dependsOn: []
     # pool:
