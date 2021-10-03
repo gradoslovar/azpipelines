@@ -26,6 +26,10 @@ stages:
 
       - template: ../templates/template.yaml
 
+      - pwsh: |
+          ls env: | ft -autosize
+        condition: Always()
+
   - stage: Stage2
     dependsOn: []
     # pool:
