@@ -10,12 +10,33 @@ name: $(BuildID)
 pool:
   vmImage: windows-2019
 
-steps:
+stages:
+  - stage: Stage1
+    dependsOn: []
+    # pool:
+    #   vmImage: ubuntu-latest
+    jobs:
+    - job: Stage1
+      steps:
+      - pwsh: |
+          ls env: | ft -autosize
 
-- pwsh: |
-    ls env: | ft -autosize
+      - pwsh: |
+          Write-Host "Stage1"
 
-- pwsh: |
-    Write-Host "dasda"
+      - template: ../templates/template.yaml
 
-- template: ../templates/template.yaml
+  - stage: Stage2
+    dependsOn: []
+    # pool:
+    #   vmImage: ubuntu-latest
+    jobs:
+    - job: Stage2
+      steps:
+      - pwsh: |
+          ls env: | ft -autosize
+
+      - pwsh: |
+          Write-Host "Stage2"
+
+      - template: ../templates/template.yaml
