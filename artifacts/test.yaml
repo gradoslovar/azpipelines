@@ -20,16 +20,7 @@ stages:
     - job: Stage1
       steps:
       - pwsh: |
-          ls env: | ft -autosize
-
-      - pwsh: |
           Write-Host "Stage1
-
-      - template: ../templates/template.yaml
-
-      - pwsh: |
-          ls env: | ft -autosize
-        condition: Always()
 
   - stage: Stage2
     dependsOn: []
@@ -38,9 +29,6 @@ stages:
     jobs:
     - job: Stage2
       steps:
-      - pwsh: |
-          ls env: | ft -autosize
-
       - pwsh: |
           Write-Host "Stage2"
 
