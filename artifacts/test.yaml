@@ -8,7 +8,8 @@ pr: none
 name: $(BuildID)
 
 pool:
-  vmImage: windows-2019
+  vmImage: ubuntu-latest
+  # vmImage: windows-2019
 
 stages:
   - stage: Stage1
