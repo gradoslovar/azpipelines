@@ -61,7 +61,7 @@ stages:
     - job: Stage1
       steps:
       - pwsh: |
-          Write-Host "Stage11"
+          Write-Host "Stage1"
 
   - stage: Stage2
     dependsOn:
