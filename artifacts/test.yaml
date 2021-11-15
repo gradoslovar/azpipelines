@@ -86,7 +86,6 @@ stages:
     dependsOn:
       - Stage2
       - Stage3
-    condition: and(succeeded(), eq(variables.architecture, 'Lab'))
     jobs:
     - job: Stage4
       steps:
