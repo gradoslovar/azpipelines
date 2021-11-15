@@ -51,7 +51,7 @@ pool:
   vmImage: windows-2019
 
 variables:
-  architecture: {{ parameters.architecture }}
+  architecture: '{{ parameters.architecture }}'
 
 stages:
   - stage: Stage1
