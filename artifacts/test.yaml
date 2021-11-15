@@ -39,6 +39,9 @@
 trigger: none
 pr: none
 
+pool:
+  vmImage: windows-2019
+
 parameters:
 - name: global_architecture
   displayName: Architecture
@@ -47,11 +50,9 @@ parameters:
     - SaaS with TLS
     - Lab
 
-pool:
-  vmImage: windows-2019
-
 variables:
-  architecture: '{{ parameters.architecture }}'
+- name: global_architecture
+  value: ${{ parameters.global_architecture }}
 
 stages:
   - stage: Stage1
@@ -72,11 +73,21 @@ stages:
           Write-Host "Stage2"
 
   - stage: Stage3
-    # dependsOn:
-    #   - Stage2
-    condition: and(succeeded(), eq(variables.architecture, 'Lab'))
+    dependsOn:
+      - Stage2
+    condition: eq(variables['global_architecture'], 'Lab')
     jobs:
     - job: Stage3
       steps:
       - pwsh: |
           Write-Host "Stage3"
+
+  # - stage: Stage4
+  #   # dependsOn:
+  #   #   - Stage2
+  #   condition: and(succeeded(), eq(variables.architecture, 'Lab'))
+  #   jobs:
+  #   - job: Stage4
+  #     steps:
+  #     - pwsh: |
+  #         Write-Host "Stage4"
