@@ -71,7 +71,9 @@ stages:
   - stage: Stage3
     # dependsOn:
     #   - Stage2
-    condition: and(succeeded(), eq({{ parameters.architecture }}, 'Lab'))
+    variables:
+      architecture: {{ parameters.architecture }}
+    condition: and(succeeded(), eq(variables.architecture, 'Lab'))
     jobs:
     - job: Stage3
       steps:
