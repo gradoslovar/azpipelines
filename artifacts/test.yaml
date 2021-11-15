@@ -62,7 +62,7 @@ stages:
 
   - stage: Stage3
     dependsOn:
-      - Stage3
+      - Stage2
     jobs:
     - job: Stage3
       steps:
