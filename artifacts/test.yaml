@@ -58,10 +58,10 @@ stages:
   - stage: Stage1
     dependsOn: []
     jobs:
-    - job: Stage1
+    - job: Job1
       steps:
       - pwsh: |
-          Write-Host "Stage1"
+          Write-Host "Job1"
 
   - stage: Stage2
     dependsOn:
