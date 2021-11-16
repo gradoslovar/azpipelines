@@ -72,13 +72,14 @@ stages:
       - pwsh: |
           Write-Host "Job2"
 
-    - job: Job3
-      condition: eq(variables['global_architecture'], 'Lab')
-      dependsOn:
-        - Job2
-      steps:
-      - pwsh: |
-          Write-Host "Job3"
+    - ${{ if eq(parameters.global_architecture, 'Lab') }}:
+      - job: Job3
+        # condition: eq(variables['global_architecture'], 'Lab')
+        dependsOn:
+          - Job2
+        steps:
+        - pwsh: |
+            Write-Host "Job3"
 
   - stage: Stage4
     dependsOn:
