@@ -33,8 +33,3 @@ jobs:
           tags: ${{ parameters.version }}
           artifact: "base-dev"
           path: "$(Pipeline.Workspace)/base-dev"
-
-    # - pwsh: |
-    #     Get-ChildItem -Recurse
-    #   workingDirectory: $(Pipeline.Workspace)/base-dev
-    #   displayName: test
