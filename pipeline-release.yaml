@@ -59,39 +59,3 @@ stages:
           targetType: 'inline'
           script: |
             echo doing something
-
-
-## Stages with deployment jobs
-# stages:
-#   - stage: Deploy_Test_1
-#     jobs:
-#     - deployment: test
-#       environment: test
-#       strategy:
-#         runOnce:
-#           deploy:
-#             steps:
-#             - task: KubectlInstaller@0
-#               displayName: 'Install Kubectl latest'
-#             - task: Bash@3
-#               displayName: 'Bash Something'
-#               inputs:
-#                 targetType: 'inline'
-#                 script: |
-#                   sleep 15s
-#                   echo gotovo spavanje
-
-#   - stage: Deploy_Test_2
-#     jobs:
-#     - deployment: test
-#       environment: test
-#       strategy:
-#         runOnce:
-#           deploy:
-#             steps:
-#             - task: Bash@3
-#               displayName: 'Bash Something'
-#               inputs:
-#                 targetType: 'inline'
-#                 script: |
-#                   echo doing something 2
