@@ -1,0 +1,35 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: ubuntu-20.04
+
+variables:
+- name: container_registry
+  value: alsidforad
+- name: DOCKER_BUILDKIT
+  value: 1
+
+jobs:
+- job: OffensiveAppContainers
+  steps:
+  - task: Docker@2
+    displayName: Build Ubuntu Agent
+    inputs:
+      containerRegistry: $(container_registry)
+      repository: agent-ubuntu
+      command: build
+      Dockerfile: agent/ubuntu/Dockerfile
+      buildContext: '.'
+      arguments: ''
+      tags: |
+        test
+
+  - task: Docker@2
+    displayName: Push Ubuntu Agent
+    inputs:
+      containerRegistry: $(container_registry)
+      repository: agent-ubuntu
+      command: push
+      tags: |
+        test
