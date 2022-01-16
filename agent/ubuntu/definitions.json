@@ -1,0 +1,534 @@
+{
+    "rabbit_version": "3.9.10",
+    "users": [
+        {
+            "name": "alsid",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "ceti",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "ceti-bridge",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "ceti-spawner",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "cancri",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "caroli",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "cygni",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "cephei",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "eridanis",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "electra",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "equuleus",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "eltanin",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "watchman",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        },
+        {
+            "name": "attackpath",
+            "password_hash": "b0D3ifBA3wlx+/zyaEiMJmrRUgpeMkdB/+MWDhHytlafDOsl",
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "tags": "administrator"
+        }
+    ],
+    "vhosts": [
+        {
+            "name": "/"
+        }
+    ],
+    "permissions": [
+        {
+            "user": "alsid",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "ceti",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "ceti-bridge",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "ceti-spawner",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "cancri",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "caroli",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "cygni",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "cephei",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "eridanis",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "electra",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "equuleus",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "eltanin",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "watchman",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+        {
+            "user": "attackpath",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        }
+    ],
+    "topic_permissions": [],
+    "parameters": [],
+    "global_parameters": [
+        {
+            "name": "cluster_name",
+            "value": "rabbit@60772b1c8d54"
+        }
+    ],
+    "policies": [],
+    "queues": [
+        {
+            "name": "ceti-bridge",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {}
+        },
+        {
+            "name": "cancri-ioe-input-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-mode": "lazy"
+            }
+        },
+        {
+            "name": "cancri-ioa-input-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-max-length": 1000000,
+                "overflow": "drop-head"
+            }
+        },
+        {
+            "name": "caroli-ioe-input-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-mode": "lazy"
+            }
+        },
+        {
+            "name": "cygni-ioe-input-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-mode": "lazy"
+            }
+        },
+        {
+            "name": "cygni-ioa-input-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-max-length": 1000000,
+                "overflow": "drop-head"
+            }
+        },
+        {
+            "name": "cygni-deviances-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-mode": "lazy"
+            }
+        },
+        {
+            "name": "cephei-users-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {}
+        },
+        {
+            "name": "cephei-deviances-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {}
+        },
+        {
+            "name": "cephei-attacks-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {}
+        },
+        {
+            "name": "cygni-ioa-script-generations",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {}
+        },
+        {
+            "name": "attack-path-ioe-input-queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-mode": "lazy"
+            }
+        }
+    ],
+    "exchanges": [
+        {
+            "name": "eridanis-output",
+            "vhost": "/",
+            "type": "topic",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+        {
+            "name": "healthcheck",
+            "vhost": "/",
+            "type": "topic",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+        {
+            "name": "cancri-output",
+            "vhost": "/",
+            "type": "topic",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+        {
+            "name": "ceti-cancri",
+            "vhost": "/",
+            "type": "topic",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+        {
+            "name": "ceti-request",
+            "vhost": "/",
+            "type": "direct",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+        {
+            "name": "caroli-output",
+            "vhost": "/",
+            "type": "topic",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+        {
+            "name": "cygni-deviances",
+            "vhost": "/",
+            "type": "topic",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+        {
+            "name": "eltanin-dead-letter",
+            "vhost": "/",
+            "type": "topic",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        },
+        {
+            "name": "eltanin-output",
+            "vhost": "/",
+            "type": "topic",
+            "durable": true,
+            "auto_delete": false,
+            "internal": false,
+            "arguments": {}
+        }
+    ],
+    "bindings": [
+        {
+            "source": "ceti-cancri",
+            "vhost": "/",
+            "destination": "cancri-ioe-input-queue",
+            "destination_type": "queue",
+            "routing_key": "Sysvol.#",
+            "arguments": {}
+        },
+        {
+            "source": "ceti-cancri",
+            "vhost": "/",
+            "destination": "cancri-ioe-input-queue",
+            "destination_type": "queue",
+            "routing_key": "Ldap.#",
+            "arguments": {}
+        },
+        {
+            "source": "ceti-cancri",
+            "vhost": "/",
+            "destination": "cancri-ioa-input-queue",
+            "destination_type": "queue",
+            "routing_key": "IOA",
+            "arguments": {}
+        },
+        {
+            "source": "ceti-request",
+            "vhost": "/",
+            "destination": "ceti-bridge",
+            "destination_type": "queue",
+            "routing_key": "",
+            "arguments": {}
+        },
+        {
+            "source": "cancri-output",
+            "vhost": "/",
+            "destination": "caroli-ioe-input-queue",
+            "destination_type": "queue",
+            "routing_key": "Sysvol.#",
+            "arguments": {}
+        },
+        {
+            "source": "cancri-output",
+            "vhost": "/",
+            "destination": "caroli-ioe-input-queue",
+            "destination_type": "queue",
+            "routing_key": "Ldap.#",
+            "arguments": {}
+        },
+        {
+            "source": "cancri-output",
+            "vhost": "/",
+            "destination": "cygni-ioa-input-queue",
+            "destination_type": "queue",
+            "routing_key": "IOA",
+            "arguments": {}
+        },
+        {
+            "source": "caroli-output",
+            "vhost": "/",
+            "destination": "cephei-users-queue",
+            "destination_type": "queue",
+            "routing_key": "Ldap.#.user.#",
+            "arguments": {}
+        },
+        {
+            "source": "caroli-output",
+            "vhost": "/",
+            "destination": "cygni-ioe-input-queue",
+            "destination_type": "queue",
+            "routing_key": "Sysvol.#",
+            "arguments": {}
+        },
+        {
+            "source": "caroli-output",
+            "vhost": "/",
+            "destination": "cygni-ioe-input-queue",
+            "destination_type": "queue",
+            "routing_key": "Ldap.#",
+            "arguments": {}
+        },
+        {
+            "source": "eridanis-output",
+            "vhost": "/",
+            "destination": "cephei-deviances-queue",
+            "destination_type": "queue",
+            "routing_key": "deviance.new",
+            "arguments": {}
+        },
+        {
+            "source": "eridanis-output",
+            "vhost": "/",
+            "destination": "cephei-deviances-queue",
+            "destination_type": "queue",
+            "routing_key": "deviance.resolve",
+            "arguments": {}
+        },
+        {
+            "source": "eridanis-output",
+            "vhost": "/",
+            "destination": "cephei-attacks-queue",
+            "destination_type": "queue",
+            "routing_key": "attack.new",
+            "arguments": {}
+        },
+        {
+            "source": "eridanis-output",
+            "vhost": "/",
+            "destination": "cephei-attacks-queue",
+            "destination_type": "queue",
+            "routing_key": "attack.close",
+            "arguments": {}
+        },
+        {
+            "source": "eridanis-output",
+            "vhost": "/",
+            "destination": "cephei-attacks-queue",
+            "destination_type": "queue",
+            "routing_key": "attack.open",
+            "arguments": {}
+        },
+        {
+            "source": "eridanis-output",
+            "vhost": "/",
+            "destination": "cygni-ioa-script-generations",
+            "destination_type": "queue",
+            "routing_key": "ioa-script-configuration.update",
+            "arguments": {}
+        },
+        {
+            "source": "cygni-deviances",
+            "vhost": "/",
+            "destination": "cygni-deviances-queue",
+            "destination_type": "queue",
+            "routing_key": "#",
+            "arguments": {}
+        },
+        {
+            "source": "caroli-output",
+            "vhost": "/",
+            "destination": "attack-path-ioe-input-queue",
+            "destination_type": "queue",
+            "routing_key": "Ldap.#",
+            "arguments": {}
+        }
+    ]
+}
