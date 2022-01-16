@@ -20,7 +20,7 @@ jobs:
       repository: rabbitmq
       command: build
       Dockerfile: agent/ubuntu/Dockerfile
-      buildContext: devops/services/rabbitmq
+      buildContext: .
       tags: |
         test2
 
