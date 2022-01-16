@@ -1,0 +1,34 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: ubuntu-20.04
+
+variables:
+- name: container_registry
+  value: alsidforad
+- name: DOCKER_BUILDKIT
+  value: 1
+
+jobs:
+- job: UbuntuAgent
+  steps:
+  - task: Docker@2
+    displayName: Build RMQ
+    inputs:
+      containerRegistry: $(container_registry)
+      repository: rabbitmq
+      command: build
+      Dockerfile: agent/ubuntu/Dockerfile
+      buildContext: devops/services/rabbitmq
+      tags: |
+        test2
+
+  - task: Docker@2
+    displayName: Push RMQ
+    inputs:
+      containerRegistry: $(container_registry)
+      repository: rabbitmq
+      command: push
+      tags: |
+        test2
