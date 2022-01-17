@@ -26,12 +26,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && mv linux-amd64/helm /usr/local/bin \
   && rm helm* && rm -r linux-*
 
-# RUN curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl \
-#     && chmod +x ./kubectl \
-#     && mv ./kubectl /usr/local/bin/kubectl
-
-# RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
-#   && rm -rf /var/lib/apt/lists/*
+RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
+  && rm -rf /var/lib/apt/lists/*
 
 ARG TARGETARCH=amd64
 ARG AGENT_VERSION=2.194.0
@@ -45,6 +41,6 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
     curl -LsS "$AZP_AGENTPACKAGE_URL" | tar -xz
 
 COPY agent/ubuntu/start.sh .
-RUN chmod +x start.sh
+RUN chmod +x start.sh --once
 
 ENTRYPOINT [ "./start.sh" ]
