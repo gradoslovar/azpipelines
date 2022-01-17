@@ -17,25 +17,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libunwind8 \
     netcat \
     libssl1.0 \
-  && rm -rf /var/lib/apt/lists/*
-
-RUN curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl \
-    && chmod +x ./kubectl \
-    && mv ./kubectl /usr/local/bin/kubectl
-
-# RUN ls -l
-
-# RUN chmod +x ./kubectl \
-#     mv ./kubectl /usr/local/bin/kubectl
+  && rm -rf /var/lib/apt/lists/* \
+  && curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl \
+  && chmod +x ./kubectl \
+  && mv ./kubectl /usr/local/bin/kubectl
 
 # RUN curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl \
-#     ç
-#     mv ./kubectl /usr/local/bin/kubectl
+#     && chmod +x ./kubectl \
+#     && mv ./kubectl /usr/local/bin/kubectl
 
 # RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
 #   && rm -rf /var/lib/apt/lists/*
-
-RUN kubectl version client
 
 ARG TARGETARCH=amd64
 ARG AGENT_VERSION=2.194.0
