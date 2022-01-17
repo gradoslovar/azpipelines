@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
   && rm -rf /var/lib/apt/lists/*
 
-RUN bin/installdependencies.sh
+RUN ls -l bin
 
 ARG TARGETARCH=amd64
 ARG AGENT_VERSION=2.194.0
