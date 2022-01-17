@@ -26,10 +26,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && mv linux-amd64/helm /usr/local/bin \
   && rm helm* && rm -r linux-*
 
+RUN curl -LO http://ftp.us.debian.org/debian/pool/main/i/icu/libicu57_57.1-6+deb9u4_amd64.de \
+    dpkg -i libicu57_57.1-6+deb9u4_amd64.deb \
+    rm libicu57_57.1-6+deb9u4_amd64.deb
+
 RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
   && rm -rf /var/lib/apt/lists/*
-
-RUN ls -l bin
 
 ARG TARGETARCH=amd64
 ARG AGENT_VERSION=2.194.0
