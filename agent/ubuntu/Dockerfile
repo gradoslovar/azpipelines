@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     netcat \
     libssl1.0 \
     curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl \
-    install -o root -g root -m 0755 kubectl /usr/local/bin/kubectlß \
+    install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl \
   && rm -rf /var/lib/apt/lists/*
 
 RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
