@@ -35,7 +35,7 @@ RUN curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl \
 # RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
 #   && rm -rf /var/lib/apt/lists/*
 
-RUN kubectl version
+RUN kubectl version client
 
 ARG TARGETARCH=amd64
 ARG AGENT_VERSION=2.194.0
