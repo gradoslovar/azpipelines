@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libssl1.0 \
   && rm -rf /var/lib/apt/lists/*
 
-# RUN curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl
+RUN curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl
 
 # RUN curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl \
 #     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
