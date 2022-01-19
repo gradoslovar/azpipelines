@@ -37,9 +37,9 @@ RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
 #   && apt-add-repository ppa:ansible/ansible \
 #   && apt update 
 
-RUN apt-add-repository ppa:ansible/ansible \
+RUN apt-add-repository ppa:ansible/ansible -y\
  && apt-get update \
- && apt install python3-pip \
+ && apt install python3-pip -y \
  && pip3 install pywinrm \
  && pip3 install pyvmomi \
  && pip3 install ansible
