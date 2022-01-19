@@ -33,19 +33,13 @@ RUN curl -LO http://ftp.us.debian.org/debian/pool/main/i/icu/libicu57_57.1-6+deb
 RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
   && rm -rf /var/lib/apt/lists/*
 
-# RUN apt install software-properties-common \
-#   && apt-add-repository ppa:ansible/ansible \
-#   && apt update 
-
-# RUN apt-add-repository ppa:ansible/ansible -y\
-#  && apt-get update \
-#  && apt install python3-pip -y \
-#  && pip3 install pywinrm \
-#  && pip3 install pyvmomi \
-#  && pip3 install ansible
-
 RUN apt-get update && apt-get install software-properties-common \
-  && apt-add-repository ppa:ansible/ansible -y
+  && apt-add-repository ppa:ansible/ansible -y \
+  && apt-get update \
+  && apt install python3-pip -y \
+  && pip3 install pywinrm \
+  && pip3 install pyvmomi \
+  && pip3 install ansible
 
 ARG TARGETARCH=amd64
 ARG AGENT_VERSION=2.194.0
