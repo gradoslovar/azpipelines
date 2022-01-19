@@ -37,10 +37,12 @@ RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
 #   && apt-add-repository ppa:ansible/ansible \
 #   && apt update 
 
-RUN apt install python3-pip \
-  && pip install pywinrm \
-  && pip install pyvmomi \
-  && pip install ansible
+RUN apt-add-repository ppa:ansible/ansible \
+ && apt-get update \
+ && apt install python3-pip \
+ && pip3 install pywinrm \
+ && pip3 install pyvmomi \
+ && pip3 install ansible
 
 ARG TARGETARCH=amd64
 ARG AGENT_VERSION=2.194.0
