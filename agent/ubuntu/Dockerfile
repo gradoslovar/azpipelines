@@ -44,7 +44,7 @@ RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
 #  && pip3 install pyvmomi \
 #  && pip3 install ansible
 
-RUN apt-get install software-properties-common \
+RUN apt-get update && apt-get install software-properties-common \
   && apt-add-repository ppa:ansible/ansible -y
 
 ARG TARGETARCH=amd64
