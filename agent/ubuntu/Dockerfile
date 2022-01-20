@@ -47,9 +47,13 @@ RUN apt-get update && apt-get install -y wget apt-transport-https software-prope
   && apt-get update \
   && apt-get install -y powershell
 
-SHELL ["pwsh", "-Command"]
+# SHELL ["pwsh", "-Command"]
 
-RUN Install-Module -Name Az -Repository PSGallery -Force
+# RUN Install-Module -Name Az -Repository PSGallery -Force
+
+# SHELL ["bash"]
+
+RUN pwsh -Command { Install-Module -Name Az -Repository PSGallery -Force -Verbose }
 
 ARG TARGETARCH=amd64
 ARG AGENT_VERSION=2.194.0
