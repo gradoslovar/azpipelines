@@ -58,7 +58,8 @@ RUN apt-get install unzip \
   && unzip terraform_1.1.3_linux_amd64.zip \
   && mv terraform /usr/local/bin/
 
-RUN pwsh -Command { Install-Module -Name Az -Scope AllUsers ß-Repository PSGallery -Force -Verbose }
+# RUN pwsh -Command { Install-Module -Name Az -Scope AllUsers ß-Repository PSGallery -Force -Verbose }
+RUN pwsh -c “&{Install-Module -Name Az -AllowClobber -Scope AllUsers -Force}”
 
 ARG TARGETARCH=amd64
 ARG AGENT_VERSION=2.194.0
