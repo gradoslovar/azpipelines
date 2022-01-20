@@ -53,9 +53,14 @@ RUN apt-get update && apt-get install -y wget apt-transport-https software-prope
 
 # SHELL ["bash"]
 
-RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - \
-  && sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
-  && sudo apt install terraform
+# RUN apt update && apt install  software-properties-common gnupg2 curl \
+#   && curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - \
+#   && sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
+#   && sudo apt install terraform
+RUN apt-get install unzip \
+  && wget https://releases.hashicorp.com/terraform/1.1.3/terraform_1.1.3_linux_amd64.zip \
+  && unzip terraform_1.1.3_linux_amd64.zip \
+  && mv terraform /usr/local/bin/
 
 RUN pwsh -Command { Install-Module -Name Az -Repository PSGallery -Force -Verbose }
 
