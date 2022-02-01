@@ -1,0 +1,25 @@
+trigger:
+  paths:
+    include:
+      - a
+pr:
+  autoCancel: false
+  branches:
+    include:
+      - develop
+      - master
+  paths:
+    include:
+      - a
+
+variables:
+  vmImage: ubuntu-20.04
+
+jobs:
+
+- job: BuildAndTest
+  pool:
+    vmImage: $(vmImage)
+  steps:
+    - pwsh: |
+        Write-Host "A CI" 
