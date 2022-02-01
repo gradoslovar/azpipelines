@@ -1,0 +1,17 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - develop
+  paths:
+    include:
+      - a
+
+pr: none
+
+variables:
+  vmImage: ubuntu-20.04
+
+jobs:
+
+- template: a.common.yaml
