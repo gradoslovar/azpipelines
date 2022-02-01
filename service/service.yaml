@@ -1,7 +1,7 @@
 trigger:
   paths:
     include:
-      - a
+      - service
 pr:
   autoCancel: false
   branches:
@@ -9,7 +9,7 @@ pr:
       - develop
   paths:
     include:
-      - a
+      - service
 
 variables:
   vmImage: ubuntu-20.04

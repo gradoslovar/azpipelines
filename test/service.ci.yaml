@@ -5,7 +5,7 @@ trigger:
       - develop
   paths:
     include:
-      - a
+      - service
 
 pr: none
 
@@ -14,4 +14,4 @@ variables:
 
 jobs:
 
-- template: a.common.yaml
+- template: service.pipeline.yaml
