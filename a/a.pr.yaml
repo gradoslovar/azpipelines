@@ -1,10 +1,13 @@
-trigger:
-  batch: true
+trigger: none
+
+pr:
+  autoCancel: true
+  branches:
+    include:
+      - develop
   paths:
     include:
       - a
-
-pr: none
 
 variables:
   vmImage: ubuntu-20.04
