@@ -4,7 +4,7 @@ trigger:
     include:
       - a
 pr:
-  autoCancel: false
+  autoCancel: true
   branches:
     include:
       - develop
