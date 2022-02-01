@@ -1,5 +1,5 @@
-trigger:
-- none
+trigger: none
+pr: none
 
 parameters:
 - name: agent
@@ -95,3 +95,4 @@ stages:
 #                 targetType: 'inline'
 #                 script: |
 #                   echo doing something 2
+#

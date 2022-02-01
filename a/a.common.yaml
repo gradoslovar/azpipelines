@@ -1,0 +1,9 @@
+jobs:
+
+- job: BuildAndTest
+  pool:
+    vmImage: $(vmImage)
+  steps:
+    - pwsh: |
+        # Start-Sleep 20
+        Write-Host "A CI"
