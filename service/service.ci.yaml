@@ -1,9 +1,10 @@
 trigger:
+  batch: true
   paths:
     include:
       - service
 pr:
-  autoCancel: false
+  autoCancel: true
   branches:
     include:
       - develop
