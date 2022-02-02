@@ -1,16 +1,15 @@
 trigger:
   paths:
     include:
-      - a
+      - service
 pr:
   autoCancel: false
   branches:
     include:
       - develop
-      - master
   paths:
     include:
-      - a
+      - service
 
 variables:
   vmImage: ubuntu-20.04
@@ -22,4 +21,4 @@ jobs:
     vmImage: $(vmImage)
   steps:
     - pwsh: |
-        Write-Host "A CI" 
+        Write-Host "Do some CI" 
