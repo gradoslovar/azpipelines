@@ -21,4 +21,5 @@ jobs:
     vmImage: $(vmImage)
   steps:
     - pwsh: |
+        Start-Sleep 10
         Write-Host "Do some CI" 
