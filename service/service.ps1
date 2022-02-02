@@ -1,1 +1,1 @@
-write-host "tegdhdhfdfsjdsst"
+write-host "test"
