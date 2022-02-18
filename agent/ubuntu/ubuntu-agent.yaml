@@ -38,7 +38,14 @@ parameters:
   default: bar
 
 steps:
-- script: echo ${{ parameters.foo }}
-- script: echo "${{ parameters.foo }}"  
-- pwsh: echo ${{ parameters.foo }}  
-- pwsh: echo "${{ parameters.foo }}"
+- task: qetza.replacetokens.replacetokens-task.replacetokens@3
+  displayName: Replace tokens in Ansible files
+  inputs:
+    # rootDirectory: $(Pipeline.Workspace)/ansible
+    targetFiles: |
+      a.ps1
+    tokenPrefix: '<-'
+    tokenSuffix: '->'
+
+      # "host_${{ parameters.role }}"
+      # all_vm_falcon_agent.yaml
