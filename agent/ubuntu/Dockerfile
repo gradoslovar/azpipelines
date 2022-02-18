@@ -8,7 +8,7 @@ FROM ubuntu:20.04
 # RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
 
 COPY agent/ubuntu/setup.sh .
-RUN ./setup.sh
+RUN chmod +x ./setup.sh && ./setup.sh
 
 # RUN apt-get update && apt-get install -y --no-install-recommends \
 #     ca-certificates \
