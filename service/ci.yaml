@@ -1,0 +1,17 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - develop
+  paths:
+    include:
+      - service
+
+pr: none
+
+variables:
+  vmImage: ubuntu-20.04
+
+- template: service.pipe.yaml
+
+- job: alert

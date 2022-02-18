@@ -1,0 +1,28 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - develop
+  paths:
+    include:
+      - service
+pr:
+  autoCancel: true
+  branches:
+    include:
+      - develop
+  paths:
+    include:
+      - service
+
+variables:
+  vmImage: ubuntu-20.04
+
+jobs:
+
+- job: BuildAndTest
+  pool:
+    vmImage: $(vmImage)
+  steps:
+    - pwsh: |
+        Write-Host "Do some CI" 
