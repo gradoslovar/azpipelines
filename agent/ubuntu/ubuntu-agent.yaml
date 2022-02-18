@@ -23,7 +23,7 @@ jobs:
       buildContext: '.'
       arguments: ''
       tags: |
-        test
+        test2
 
   - task: Docker@2
     displayName: Push Ubuntu Agent
@@ -32,4 +32,4 @@ jobs:
       repository: agent-ubuntu
       command: push
       tags: |
-        test
+        test2

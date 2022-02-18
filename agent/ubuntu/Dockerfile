@@ -7,7 +7,7 @@ FROM ubuntu:20.04
 # ENV DEBIAN_FRONTEND=noninteractive
 # RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
 
-COPY setup.sh .
+COPY agent/ubuntu/setup.sh .
 RUN ./setup.sh
 
 # RUN apt-get update && apt-get install -y --no-install-recommends \
