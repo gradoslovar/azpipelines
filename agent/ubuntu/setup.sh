@@ -65,9 +65,7 @@ apt-get install -y powershell
 
 
 # # RUN pwsh -Command { Install-Module -Name Az -Scope AllUsers ß-Repository PSGallery -Force -Verbose }
-# pwsh -c "&{Install-Module -Name Az -AllowClobber -Scope AllUsers -Force}"
-
-
+pwsh -c "&{Install-Module -Name Az -AllowClobber -Scope AllUsers -Force}"
 
 
 
