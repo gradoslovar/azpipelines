@@ -43,19 +43,19 @@ pip3 install pywinrm \
 pip3 install pyvmomi \
 pip3 install ansible
 
-# RUN apt-get update && apt-get install -y wget apt-transport-https software-properties-common \
-#   && wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb \
-#   && dpkg -i packages-microsoft-prod.deb \
-#   && apt-get update \
-#   && apt-get install -y powershell
+apt-get update && apt-get install -y wget apt-transport-https software-properties-common \
+wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb \
+dpkg -i packages-microsoft-prod.deb \
+apt-get update \
+apt-get install -y powershell
 
-# RUN apt-get install unzip \
-#   && wget https://releases.hashicorp.com/terraform/1.1.3/terraform_1.1.3_linux_amd64.zip \
-#   && unzip terraform_1.1.3_linux_amd64.zip \
-#   && mv terraform /usr/local/bin/
+apt-get install unzip \
+wget https://releases.hashicorp.com/terraform/1.1.3/terraform_1.1.3_linux_amd64.zip \
+unzip terraform_1.1.3_linux_amd64.zip \
+mv terraform /usr/local/bin/
 
-# # RUN pwsh -Command { Install-Module -Name Az -Scope AllUsers ß-Repository PSGallery -Force -Verbose }
-# RUN pwsh -c "&{Install-Module -Name Az -AllowClobber -Scope AllUsers -Force}"
+# RUN pwsh -Command { Install-Module -Name Az -Scope AllUsers ß-Repository PSGallery -Force -Verbose }
+pwsh -c "&{Install-Module -Name Az -AllowClobber -Scope AllUsers -Force}"
 
 
 
