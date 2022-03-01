@@ -4,8 +4,8 @@ FROM ubuntu:20.04
 
 # To make it easier for build and release pipelines to run apt-get,
 # configure apt to not require confirmation (assume the -y argument by default)
-# ENV DEBIAN_FRONTEND=noninteractive
-# RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
+ENV DEBIAN_FRONTEND=noninteractive
+RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
 
 COPY agent/ubuntu/setup.sh .
 RUN chmod +x setup.sh && ./setup.sh

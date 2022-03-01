@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ENV DEBIAN_FRONTEND=noninteractive
-echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
+# ENV DEBIAN_FRONTEND=noninteractive
+# echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
 
 # Update the package listing, so we know what package exist:
 apt-get update
