@@ -43,9 +43,6 @@ rm -r linux-*
 curl -LsS https://aka.ms/InstallAzureCLIDeb | bash
 rm -rf /var/lib/apt/lists/*
 
-# apt-get update
-# apt-get install software-properties-common
-
 # Ansible
 apt-add-repository ppa:ansible/ansible -y
 apt-get update
@@ -58,9 +55,6 @@ pip3 install ansible
 wget https://releases.hashicorp.com/terraform/1.1.3/terraform_1.1.3_linux_amd64.zip
 unzip terraform_1.1.3_linux_amd64.zip
 mv terraform /usr/local/bin/
-
-# apt-get update
-# apt-get install -y wget apt-transport-https software-properties-common
 
 # PowerShell
 wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb

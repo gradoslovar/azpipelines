@@ -25,11 +25,11 @@ jobs:
       tags: |
         test2
 
-  # - task: Docker@2
-  #   displayName: Push Ubuntu Agent
-  #   inputs:
-  #     containerRegistry: $(container_registry)
-  #     repository: agent-ubuntu
-  #     command: push
-  #     tags: |
-  #       test2
+  - task: Docker@2
+    displayName: Push Ubuntu Agent
+    inputs:
+      containerRegistry: $(container_registry)
+      repository: agent-ubuntu
+      command: push
+      tags: |
+        test2
