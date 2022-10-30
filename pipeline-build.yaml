@@ -21,12 +21,16 @@ stages:
           Write-Host "Test"
 
       - pwsh: |
-          write-host "##vso[task.setvariable variable=version;isOutput=true]$(global_product_version)"
+          if ($(global_product_version) -match "^\d+(?:\.\d+){2}$") {
+            write-host "##vso[task.setvariable variable=release;isOutput=true]true"
+          } else {
+            write-host "##vso[task.setvariable variable=release;isOutput=true]false"
+          }
         displayName: Tattoo
         name: Tattoo
 
   - stage: After
-    condition: eq(variables.version, 'true')
+    condition: eq(variables.release, 'true')
     displayName: After
     dependsOn:
      - Test
@@ -40,4 +44,5 @@ stages:
       - checkout: none
 
       - pwsh: |
-          Write-Host "$(version)"
+          Write-Host "$(release)"
+          Write-Host "$(global_product_version)"
