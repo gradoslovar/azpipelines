@@ -39,4 +39,4 @@ stages:
       - checkout: none
 
       - pwsh: |
-          Write-Host "After"
+          Write-Host "$(version)"
