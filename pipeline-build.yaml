@@ -3,8 +3,8 @@ parameters:
   displayName: Product Version
 
 variables:
-- name: foo
-  value: bar
+- name: global_product_version
+  value: ${{ parameters.global_product_version }}
 
 stages:
   - stage: Test
@@ -20,12 +20,19 @@ stages:
       - pwsh: |
           Write-Host "Test"
 
+      - pwsh: |
+          write-host "##vso[task.setvariable variable=version;isOutput=true]$(global_product_version)"
+        displayName: Tattoo
+        name: Tattoo
+
   - stage: After
     displayName: After
     dependsOn:
      - Test
     pool:
       vmImage: ubuntu-22.04
+    variables:
+      version: $[stageDependencies.Test.Test.outputs['Tattoo.version']]
     jobs:
     - job: After
       steps:
