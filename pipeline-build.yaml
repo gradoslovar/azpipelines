@@ -1,35 +1,35 @@
-# Build pipeline sample that consumes build sample job template
+parameters:
+- name: global_product_version
+  displayName: Product Version
 
-trigger: none
-pr: none
-
-pool:
-  vmImage: 'ubuntu-20.04'
+variables:
+- name: foo
+  value: bar
 
 stages:
-  - stage: Build
+  - stage: Test
+    displayName: Test
+    dependsOn: []
+    pool:
+      vmImage: ubuntu-22.04
     jobs:
-    - template: templates/build-sample-job.yaml
-      # parameters:
-      #   preBuild:
-      #     - task: Bash@3
-      #       displayName: 'Custom pre-build step 1'
-      #       inputs:
-      #         targetType: 'inline'
-      #         script: |
-      #           echo Doing something custom 1
+    - job: Test
+      steps:
+      - checkout: none
 
-      #     - task: Bash@3
-      #       displayName: 'Custom pre-build step 2'
-      #       inputs:
-      #         targetType: 'inline'
-      #         script: |
-      #           echo Doing something custom 2
+      - pwsh: |
+          Write-Host "Test"
 
-      #   postBuild:
-      #     - task: Bash@3
-      #       displayName: 'Custom post-build step'
-      #       inputs:
-      #         targetType: 'inline'
-      #         script: |
-      #           echo Doing something post-build
+  - stage: After
+    displayName: After
+    dependsOn:
+     - Test
+    pool:
+      vmImage: ubuntu-22.04
+    jobs:
+    - job: After
+      steps:
+      - checkout: none
+
+      - pwsh: |
+          Write-Host "After"
