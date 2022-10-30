@@ -2,10 +2,6 @@ parameters:
 - name: global_product_version
   displayName: Product Version
 
-variables:
-- name: global_product_version
-  value: ${{ parameters.global_product_version }}
-
 stages:
   - stage: Test
     displayName: Test
@@ -18,10 +14,10 @@ stages:
       - checkout: none
 
       - pwsh: |
-          Write-Host "$(global_product_version)"
+          Write-Host "${{ parameters.global_product_version }}"
 
       - pwsh: |
-          if ($(global_product_version) -match "^\d+(?:\.\d+){2}$") {
+          if (${{ parameters.global_product_version }} -match "^\d+(?:\.\d+){2}$") {
             write-host "ide"
           } else {
             write-host "ne ide"
@@ -30,7 +26,7 @@ stages:
         name: test
 
       - pwsh: |
-          if ($(global_product_version) -match "^\d+(?:\.\d+){2}$") {
+          if (${{ parameters.global_product_version }} -match "^\d+(?:\.\d+){2}$") {
             write-host "##vso[task.setvariable variable=release;isOutput=true]true"
           } else {
             write-host "##vso[task.setvariable variable=release;isOutput=true]false"
@@ -54,4 +50,3 @@ stages:
 
       - pwsh: |
           Write-Host "$(release)"
-          Write-Host "$(global_product_version)"
