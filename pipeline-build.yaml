@@ -26,6 +26,7 @@ stages:
         name: Tattoo
 
   - stage: After
+    condition: eq(variables.version, 'true')
     displayName: After
     dependsOn:
      - Test
