@@ -1,3 +1,6 @@
+trigger: none
+pr: none
+
 parameters:
 - name: global_product_version
   displayName: Product Version
