@@ -18,7 +18,16 @@ stages:
       - checkout: none
 
       - pwsh: |
-          Write-Host "Test"
+          Write-Host "$(global_product_version)"
+
+      - pwsh: |
+          if ($(global_product_version) -match "^\d+(?:\.\d+){2}$") {
+            write-host "ide"
+          } else {
+            write-host "ne ide"
+          }
+        displayName: test
+        name: test
 
       - pwsh: |
           if ($(global_product_version) -match "^\d+(?:\.\d+){2}$") {
