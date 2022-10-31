@@ -55,7 +55,7 @@ stages:
     pool:
       vmImage: ubuntu-22.04
     variables:
-      version: $[stageDependencies.Test.Test.outputs['Tattoo.version']]
+      release: $[stageDependencies.Test.Test.outputs['Tattoo.release']]
     jobs:
     - job: After
       steps:
