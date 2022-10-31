@@ -20,7 +20,7 @@ stages:
           Write-Host "${{ parameters.global_product_version }}"
 
       - pwsh: |
-          if (${{ parameters.global_product_version }} -match "^(\d+\.)?(\d+\.)?(\*|\d+)$") {
+          if ("${{ parameters.global_product_version }}" -match "^(\d+\.)?(\d+\.)?(\*|\d+)$") {
             write-host "ide"
           } else {
             write-host "ne ide"
@@ -29,7 +29,7 @@ stages:
         name: test
 
       - pwsh: |
-          if (${{ parameters.global_product_version }} -match "^(\d+\.)?(\d+\.)?(\*|\d+)$") {
+          if ("${{ parameters.global_product_version }}" -match "^(\d+\.)?(\d+\.)?(\*|\d+)$") {
             write-host "##vso[task.setvariable variable=release;isOutput=true]true"
           } else {
             write-host "##vso[task.setvariable variable=release;isOutput=true]false"
