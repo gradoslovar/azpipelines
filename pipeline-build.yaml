@@ -35,10 +35,10 @@ stages:
       - pwsh: |
           if ("$(version)" -match "^(\d+\.)?(\d+\.)?(\*|\d+)$") {
             write-host "##vso[task.setvariable variable=release;isOutput=true]yes"
-            write-host "##vso[task.setvariable variable=foo;]true"
+            write-host "##vso[task.setvariable variable=foo;]yes"
           } else {
             write-host "##vso[task.setvariable variable=release;isOutput=true]no"
-            write-host "##vso[task.setvariable variable=foo;]false"
+            write-host "##vso[task.setvariable variable=foo;]no"
           }
         displayName: Tattoo
         name: Tattoo
@@ -47,19 +47,19 @@ stages:
           Write-Host "$(foo)"
         displayName: foo
 
-  # - stage: After
-  #   condition: eq(variables.release, "yes")
-  #   displayName: After
-  #   dependsOn:
-  #    - Test
-  #   pool:
-  #     vmImage: ubuntu-22.04
-  #   variables:
-  #     version: $[stageDependencies.Test.Test.outputs['Tattoo.version']]
-  #   jobs:
-  #   - job: After
-  #     steps:
-  #     - checkout: none
+  - stage: After
+    condition: eq(variables.release, "yes")
+    displayName: After
+    dependsOn:
+     - Test
+    pool:
+      vmImage: ubuntu-22.04
+    variables:
+      version: $[stageDependencies.Test.Test.outputs['Tattoo.version']]
+    jobs:
+    - job: After
+      steps:
+      - checkout: none
 
-  #     - pwsh: |
-  #         Write-Host "$(release)"
+      - pwsh: |
+          Write-Host "$(release)"
