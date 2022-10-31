@@ -48,7 +48,7 @@ stages:
         displayName: foo
 
   - stage: After
-    condition: eq(variables.release, "yes")
+    condition: eq(variables.release, 'yes')
     displayName: After
     dependsOn:
      - Test
