@@ -35,14 +35,20 @@ stages:
       - pwsh: |
           if ("$(version)" -match "^(\d+\.)?(\d+\.)?(\*|\d+)$") {
             write-host "##vso[task.setvariable variable=release;isOutput=true]true"
+            write-host "##vso[task.setvariable variable=foo;]true"
           } else {
             write-host "##vso[task.setvariable variable=release;isOutput=true]false"
+            write-host "##vso[task.setvariable variable=foo;]false"
           }
         displayName: Tattoo
         name: Tattoo
 
+      - pwsh: |
+          Write-Host "$(foo)"
+        displayName: foo
+
   - stage: After
-    condition: eq(variables.release, 'true')
+    condition: eq(variables.release, "true")
     displayName: After
     dependsOn:
      - Test
