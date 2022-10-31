@@ -48,18 +48,18 @@ stages:
         displayName: foo
 
   - stage: After
-    condition: eq(variables.release, 'yes')
+    condition: eq(variables.rc, 'yes')
     displayName: After
     dependsOn:
      - Test
     pool:
       vmImage: ubuntu-22.04
     variables:
-      release: $[stageDependencies.Test.Test.outputs['Tattoo.release']]
+      rc: $[stageDependencies.Test.Test.outputs['Tattoo.release']]
     jobs:
     - job: After
       steps:
       - checkout: none
 
       - pwsh: |
-          Write-Host "$(release)"
+          Write-Host "$(rc)"
