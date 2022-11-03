@@ -46,4 +46,4 @@ stages:
       - pwsh: |
           Write-Host "$(foo)"
         displayName: foo
-        condition: eq("$(foo)"", "yes")
+        condition: eq("$(foo)", "yes")
