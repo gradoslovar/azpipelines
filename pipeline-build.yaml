@@ -6,7 +6,7 @@ parameters:
   displayName: Product Version
 
 variables:
-- name: version
+- name: global_product_version
   value: ${{ parameters.global_product_version }}
 
 stages:
