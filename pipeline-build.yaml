@@ -46,20 +46,4 @@ stages:
       - pwsh: |
           Write-Host "$(foo)"
         displayName: foo
-
-  - ${{ if eq(variables.foo, 'yes') }}:
-    - stage: After
-      displayName: After
-      dependsOn:
-      - Test
-      pool:
-        vmImage: ubuntu-22.04
-      variables:
-        rc: $[stageDependencies.Test.Test.outputs['Tattoo.release']]
-      jobs:
-      - job: After
-        steps:
-        - checkout: none
-
-        - pwsh: |
-            Write-Host "$(rc)"
+        condition: eq($(foo), "yes")
