@@ -42,6 +42,6 @@ stages:
         name: Tattoo
 
       - pwsh: |
-          Write-Host "$(foo)"
+          Write-Host "$(release)"
         displayName: foo
-        condition: eq(variables.foo, 'yes')
+        condition: eq(variables.release, 'yes')
